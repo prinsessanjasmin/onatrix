@@ -13,9 +13,33 @@
 }
 
 body {
-    @apply text-text font-poppins;
+    @apply text-text text-sm font-poppins;
+}
+
+.hero-title {
+    @apply text-7xl leading-20 font-bold text-text;
 }
 
 h1 {
-    @apply text-7xl leading-20 font-bold text-text;
+    @apply text-5xl font-bold text-primary;
+}
+
+h2 {
+    @apply text-4xl font-bold text-primary;
+}
+
+h3 {
+    @apply text-3xl font-bold text-primary;
+}
+
+h4 {
+   @apply text-2xl font-bold text-primary;
+}
+
+h5 {
+    @apply text-xl font-bold text-primary;
+}
+
+h6 {
+    @apply text-lg font-bold text-primary;
 }
