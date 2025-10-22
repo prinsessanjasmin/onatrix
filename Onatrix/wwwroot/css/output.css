@@ -25,9 +25,11 @@
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
     --font-weight-bold: 700;
+    --radius-sm: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-primary: #4F5955;
+    --color-secondary: #F2EDDC;
     --color-text: #535656;
     --font-poppins: "Poppins", sans-serif;
   }
@@ -243,14 +245,33 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
   .object-cover {
     object-fit: cover;
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
   .py-\[7rem\] {
     padding-block: 7rem;
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-secondary {
+    color: var(--color-secondary);
   }
 }
 body {
@@ -330,11 +351,11 @@ h6 {
   syntax: "*";
   inherits: false;
 }
-@property --tw-leading {
+@property --tw-font-weight {
   syntax: "*";
   inherits: false;
 }
-@property --tw-font-weight {
+@property --tw-leading {
   syntax: "*";
   inherits: false;
 }
@@ -346,8 +367,8 @@ h6 {
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
-      --tw-leading: initial;
       --tw-font-weight: initial;
+      --tw-leading: initial;
     }
   }
 }
