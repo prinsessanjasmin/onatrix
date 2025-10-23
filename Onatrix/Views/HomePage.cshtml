@@ -12,7 +12,7 @@
 		<div class="w-5/12 flex flex-col gap-8">
 			<h1 class="hero-title">@Model.HeroHeadline</h1>
 			<div>@Html.Raw(Model.HeroText)</div>
-			@* <a href="@Model.HeroLink.Url()">@Model.HeroLink.Name</a> *@
+			@* <a class="bg-primary px-10 py-4 rounded-sm" href="@Model.HeroLink?.Url()"><h6 class="text-secondary font-bold">@Model.HeroLink</h6></a> *@
 		</div>
 
 	</div>

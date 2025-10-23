@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Home Page</summary>
-	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel
+	/// <summary>About Page</summary>
+	[PublishedModel("aboutPage")]
+	public partial class AboutPage : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		public new const string ModelTypeAlias = "homePage";
+		public new const string ModelTypeAlias = "aboutPage";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<HomePage, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<AboutPage, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public HomePage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public AboutPage(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,35 +50,59 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// BgImage
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("heroBgImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops HeroBgImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "heroBgImage");
-
-		///<summary>
 		/// Headline
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("heroHeadline")]
-		public virtual string HeroHeadline => this.Value<string>(_publishedValueFallback, "heroHeadline");
+		[ImplementPropertyType("companyPraiseHeadline")]
+		public virtual string CompanyPraiseHeadline => this.Value<string>(_publishedValueFallback, "companyPraiseHeadline");
 
 		///<summary>
-		/// Link
+		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("heroLink")]
-		public virtual global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent HeroLink => this.Value<global::Umbraco.Cms.Core.Models.PublishedContent.IPublishedContent>(_publishedValueFallback, "heroLink");
+		[ImplementPropertyType("companyPraiseImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops CompanyPraiseImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "companyPraiseImage");
+
+		///<summary>
+		/// Label
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("companyPraiseLabel")]
+		public virtual string CompanyPraiseLabel => this.Value<string>(_publishedValueFallback, "companyPraiseLabel");
 
 		///<summary>
 		/// Text
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("heroText")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString HeroText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "heroText");
+		[ImplementPropertyType("companyPraiseText")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString CompanyPraiseText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "companyPraiseText");
+
+		///<summary>
+		/// Image 
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("companyPresentationImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops CompanyPresentationImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "companyPresentationImage");
+
+		///<summary>
+		/// Image Caption
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("companyPresentationImageCaption")]
+		public virtual string CompanyPresentationImageCaption => this.Value<string>(_publishedValueFallback, "companyPresentationImageCaption");
+
+		///<summary>
+		/// Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("companyPresentationText")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString CompanyPresentationText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "companyPresentationText");
 	}
 }
