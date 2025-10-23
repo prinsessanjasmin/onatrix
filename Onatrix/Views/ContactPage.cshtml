@@ -1,5 +1,29 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContactPage>
 @{
-	Layout = null;
+	Layout = "mainLayout.cshtml";
 }
+
+<section class="py-[7rem]">
+	<div class="container content relative flex gap-12">
+		<div class="w-1/2 relative">
+			<img src="@Model.ContactSectionBgImage?.Url()" class="relative w-full h-full object-cover z-10 inset-0"/>
+			<img src="@Model.ContactSectionImage?.Url()" class="absolute object-cover z-10 inset-0 overflow-hidden"/>
+		</div>
+		<div class="w-1/2 flex flex-col gap-8 py-[7rem] px-40">
+			<h2>@Model.ContactSectionHeadline</h2>
+			<div>
+				<p>Office location: </p>
+				<p>@Model.ContactSectionStreetAddress</p>
+			</div>
+			<div>
+				<p>Phone number: </p>
+				<p>@Model.ContactSectionPhoneNumber</p>
+			</div>
+			<div>
+				<p>Email address</p>
+				<p>@Model.ContactSectionEmailAddress</p>
+			</div>
+		</div>
+	</div>
+</section>
