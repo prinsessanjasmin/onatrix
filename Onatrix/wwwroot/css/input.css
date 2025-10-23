@@ -43,3 +43,11 @@ h5 {
 h6 {
     @apply text-lg font-bold text-primary;
 }
+
+p {
+    @apply text-base; 
+}
+
+.content {
+    @apply mx-auto px-4;
+}
