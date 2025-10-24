@@ -1,0 +1,20 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.EmployeesSection)Model.Content;
+	var employees = content.EmployeesList;
+}
+
+
+
+<section class="relative py-[7rem]">
+	<div class="container content relative z-10">
+		<div class="flex gap-8">
+			<p class="label">@content.EmployeesLabel</p>
+			<h2>@content.EmployeesHeadline</h2>
+			<div>
+				@Html.GetBlockListHtml(content.EmployeesList)
+			</div>
+		</div>
+	</div>
+</section>

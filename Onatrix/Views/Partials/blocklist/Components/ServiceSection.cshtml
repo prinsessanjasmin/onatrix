@@ -1,0 +1,14 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ServiceSection)Model.Content;
+}
+
+<section class="relative py-[7rem]">
+	<div class="container content relative z-10">
+		<div class="w-6/12 flex flex-col gap-8">
+			<p class="label">@content.ServiceLabel</p>
+			<h2>@content.ServiceTitel</h2>
+		</div>
+	</div>
+</section>

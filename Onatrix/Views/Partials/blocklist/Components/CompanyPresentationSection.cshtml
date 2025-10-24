@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	var content = (ContentModels.CompanyPresentationSection)Model.Content;
+}
+
+<section class="relative py-[7rem]">
+	<div class="container content flex gap-8 relative z-10">
+		<div class="w-4/12 flex">
+			<img class="w-full object-cover">@content.CompanyPresentationImage/>
+			<p>@content.CompanyPresentationImageCaption</p>
+		</div>
+		<div class="w-8/12 flex">
+			@Html.Raw(content.CompanyPresentationText); 
+		</div>
+	</div>
+</section>
