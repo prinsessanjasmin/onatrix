@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.TrustUsSection)Model.Content;
+}
+
+<section class="relative py-[7rem]">
+	<div class="container content relative z-10">
+		<div class="flex gap-8">
+			<h2 >@content.TrustUsHeadline</h2>
+			<p>@Html.Raw(content.TrustUsText)</p>
+			<div class="bg-primary px-10 py-4 rounded-sm flex">
+				@* <a href="@content.TrustUsLink?.Url()">
+					<p class="text-secondary font-bold">@content.TrustUsLink?.Name</p>
+				</a> *@
+			</div>
+		</div>
+	</div>
+	<div class="relative inset-0">
+		<img class="w-full h-full object-cover" src="@content.TrustUsImage?.Url()" alt="" />
+	</div>
+</section>

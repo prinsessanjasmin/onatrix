@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ContactMapSection)Model.Content;
+}
+
+<section class="relative py-[7rem]">
+	<div class="absolute inset-0">
+		<img class="w-full h-full object-cover" src="@content.ContactMapBackgroundImage?.Url()" alt="" />
+	</div>
+</section>

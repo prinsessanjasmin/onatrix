@@ -9,6 +9,7 @@
     --color-bg-grey: #F7F7F7;
     --color-footer: #0E0E0E;
     --color-white: #FFFFFF;
+    --color-border: #EAEAEA;
     --font-poppins: "Poppins", sans-serif;
 }
 
@@ -49,5 +50,9 @@ p {
 }
 
 .content {
-    @apply mx-auto px-4;
+    @apply max-w-7xl mx-auto px-4;
+}
+
+.label {
+    @apply text-sm font-bold text-secondary uppercase;
 }
