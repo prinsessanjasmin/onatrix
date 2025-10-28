@@ -3,18 +3,30 @@
 @{
     var content = (ContentModels.EmployeesSection)Model.Content;
 	var employees = content.EmployeesList;
+
 }
 
 
 
-<section class="relative py-[7rem]">
-	<div class="container content relative z-10">
-		<div class="flex gap-8">
+<section class="py-[7rem] bg-bg-grey">
+	<div class="container content">
+		<div class="flex flex-col items-center">
 			<p class="label">@content.EmployeesLabel</p>
 			<h2>@content.EmployeesHeadline</h2>
-			<div>
-				@Html.GetBlockListHtml(content.EmployeesList)
-			</div>
+		</div>
+		<div class="flex flex-wrap gap-y-5 pt-5 pb-5 -mx-2">
+			@if (employees != null)
+			{
+				@for (var i = 0; i < employees.Count; i++)
+				{
+					var member = employees[i]; 
+					var colClass = i < 3 ? "w-1/3" : "w-1/4"; 
+
+					<div class="colClass px-2">
+						<partial name="Partials/Blocklist/Components/TeamMember" model="member" />
+					</div>
+				}
+			}
 		</div>
 	</div>
 </section>

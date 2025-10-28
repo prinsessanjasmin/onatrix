@@ -50,9 +50,9 @@ p {
 }
 
 .content {
-    @apply mx-auto px-4;
+    @apply max-w-7xl mx-auto px-4;
 }
 
 .label {
-    @apply text-sm font-bold text-tertiary uppercase;
+    @apply text-sm font-bold text-secondary uppercase;
 }
