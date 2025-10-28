@@ -56,3 +56,7 @@ p {
 .label {
     @apply text-sm font-bold text-secondary uppercase;
 }
+
+.social-media-icon {
+    @apply flex items-center justify-center p-5 text-white border-l border-note last:border-r;
+}

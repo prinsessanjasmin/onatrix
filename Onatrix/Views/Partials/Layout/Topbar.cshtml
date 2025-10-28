@@ -1,0 +1,70 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	var rootContent = Umbraco.ContentAtRoot();
+	var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault(); 
+
+	var contactAddress = siteSettings?.ContactAddress ?? "Ingen adress angiven";
+}
+
+<div class="bg-primary">
+	<div class="container content flex items-center justify-between">
+		<p class="text-sm text-white">@contactAddress</p>
+
+		<div class="flex">
+			@if (siteSettings?.SocialMediaList != null)
+			{
+				foreach (var item in siteSettings.SocialMediaList)
+				{
+					@if (item.Content is SocialMediaItem socialMediaItem)
+					{
+						switch (socialMediaItem.SocialMediaPlatform!.ToLower())
+						{
+							case "facebook":
+								<a class="social-media-icon" href="@socialMediaItem.SocialMediaAccountUrl" target="_blank">
+									<i class="fa-brands fa-facebook-f text-white"></i>
+								</a>
+								break;
+
+							case "x":
+								<a class="social-media-icon" href="@socialMediaItem.SocialMediaAccountUrl" target="_blank">
+									<i class="fa-brands fa-x-twitter text-white"></i>
+								</a>
+								break;
+
+							case "instagram":
+								<a class="social-media-icon" href="@socialMediaItem.SocialMediaAccountUrl" target="_blank">
+									<i class="fa-brands fa-x-twitter text-white"></i>">
+								</a>
+								break;
+
+							case "linkedin":
+								<a class="social-media-icon" href="@socialMediaItem.SocialMediaAccountUrl" target="_blank">
+									<i class="fa-brands fa-linkedin-in text-white"></i>
+								</a>
+								break;
+
+							case "youtube":
+								<a class="social-media-icon" href="@socialMediaItem.SocialMediaAccountUrl" target="_blank">
+									<i class="fa-brands fa-youtube text-white"></i>
+								</a>
+								break;
+
+							case "tiktok":
+								<a class="social-media-icon" href="@socialMediaItem.SocialMediaAccountUrl" target="_blank">
+									<i class="fa-brands fa-tiktok text-white"></i>
+								</a>
+								break;
+
+							default:
+								<a class="social-media-icon" href="@socialMediaItem.SocialMediaAccountUrl" target="_blank">
+									<i class="fa-solid fa-users text-white"></i>
+								</a>
+								break;
+						}
+					}
+				}
+			}
+		</div>
+	</div>
+</div>
