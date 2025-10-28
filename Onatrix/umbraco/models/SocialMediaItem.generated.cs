@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Social Media Item</summary>
 	[PublishedModel("socialMediaItem")]
-	public partial class SocialMediaItem : PublishedContentModel
+	public partial class SocialMediaItem : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -41,7 +41,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public SocialMediaItem(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public SocialMediaItem(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,19 +50,19 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Account Url
+		/// Account Url: Has to include "https://"
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("platformAccountUrl")]
-		public virtual string PlatformAccountUrl => this.Value<string>(_publishedValueFallback, "platformAccountUrl");
+		[ImplementPropertyType("socialMediaAccountUrl")]
+		public virtual string SocialMediaAccountUrl => this.Value<string>(_publishedValueFallback, "socialMediaAccountUrl");
 
 		///<summary>
 		/// Platform
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("platformName")]
-		public virtual string PlatformName => this.Value<string>(_publishedValueFallback, "platformName");
+		[ImplementPropertyType("socialMediaPlatform")]
+		public virtual string SocialMediaPlatform => this.Value<string>(_publishedValueFallback, "socialMediaPlatform");
 	}
 }
