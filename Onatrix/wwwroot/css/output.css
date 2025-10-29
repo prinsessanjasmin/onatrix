@@ -26,8 +26,6 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
-    --text-7xl: 4.5rem;
-    --text-7xl--line-height: 1;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --radius-sm: 0.25rem;
@@ -454,8 +452,7 @@ body {
   color: var(--color-text);
 }
 .hero-title {
-  font-size: var(--text-7xl);
-  line-height: var(--tw-leading, var(--text-7xl--line-height));
+  font-size: 4.2rem;
   --tw-leading: calc(var(--spacing) * 20);
   line-height: calc(var(--spacing) * 20);
   --tw-font-weight: var(--font-weight-bold);
@@ -518,7 +515,7 @@ p {
   line-height: var(--tw-leading, var(--text-sm--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
-  color: var(--color-secondary);
+  color: var(--color-tertiary);
   text-transform: uppercase;
 }
 .social-media-icon {
