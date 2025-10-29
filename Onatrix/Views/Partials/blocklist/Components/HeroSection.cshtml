@@ -1,7 +1,7 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-    var content = (ContentModels.HeroSection)Model.Content;
+	var content = (ContentModels.HeroSection)Model.Content;
 }
 
 <section class="relative py-[7rem]">
@@ -13,9 +13,9 @@
 			<h1 class="hero-title">@content.HeroTitle</h1>
 			<div>@Html.Raw(content.HeroText)</div>
 			<div class="bg-primary px-10 py-4 rounded-sm flex w-4/12">
-				@* <a href="@content.HeroLink?.Url()">
+				<a href="@content.HeroLink?.Url">
 					<p class="text-secondary font-bold">@content.HeroLink?.Name</p>
-				</a> *@
+				</a>
 			</div>
 		</div>
 	</div>
