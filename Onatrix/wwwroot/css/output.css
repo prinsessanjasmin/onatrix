@@ -359,6 +359,12 @@
   .\[background-image\:url\(\'\/Images\/Backgrounds\/dot-left-down\.svg\'\)\,url\(\'\/Images\/Backgrounds\/dot-right-up\.svg\'\)\] {
     background-image: url('/Images/Backgrounds/dot-left-down.svg'),url('/Images/Backgrounds/dot-right-up.svg');
   }
+  .bg-\[url\(\'\/Images\/Backgrounds\/dot-map-dark-bg\.svg\'\)\] {
+    background-image: url('/Images/Backgrounds/dot-map-dark-bg.svg');
+  }
+  .bg-\[url\(\'\/Images\/Backgrounds\/dot-map\.svg\'\)\] {
+    background-image: url('/Images/Backgrounds/dot-map.svg');
+  }
   .bg-\[url\(\'\/Images\/Backgrounds\/dots-behind-trust-us\.svg\'\)\] {
     background-image: url('/Images/Backgrounds/dots-behind-trust-us.svg');
   }
