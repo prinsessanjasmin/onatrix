@@ -35,7 +35,6 @@
             "Security": {
                 "AllowConcurrentLogins": false
             }
-        }
     },
     "ConnectionStrings": {
         "umbracoDbDSN": "",
