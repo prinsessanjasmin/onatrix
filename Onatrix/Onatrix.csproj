@@ -5,6 +5,45 @@
     <Nullable>enable</Nullable>
     <CompressionEnabled>false</CompressionEnabled> <!-- Disable compression. E.g. for umbraco backoffice files. These files should be precompressed by node and not let dotnet handle it -->
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Images\Backgrounds\dot-bg-let-us-know.svg" />
+    <None Include="wwwroot\Images\Backgrounds\dot-left-down.svg" />
+    <None Include="wwwroot\Images\Backgrounds\dot-map-dark-bg.svg" />
+    <None Include="wwwroot\Images\Backgrounds\dot-map.svg" />
+    <None Include="wwwroot\Images\Backgrounds\dot-right-up.svg" />
+    <None Include="wwwroot\Images\Backgrounds\map.svg" />
+    <None Include="wwwroot\Images\Employees\aaron-lambert.svg" />
+    <None Include="wwwroot\Images\Employees\aj-carter.svg" />
+    <None Include="wwwroot\Images\Employees\brandon-kerr.svg" />
+    <None Include="wwwroot\Images\Employees\brandon-newton.svg" />
+    <None Include="wwwroot\Images\Employees\full-team.svg" />
+    <None Include="wwwroot\Images\Employees\Kevin-Gardner 1.svg" />
+    <None Include="wwwroot\Images\Employees\miranda-dayton.svg" />
+    <None Include="wwwroot\Images\Employees\t-fox-sign.svg" />
+    <None Include="wwwroot\Images\Employees\tina-fox-small.svg" />
+    <None Include="wwwroot\Images\Employees\tina-fox.svg" />
+    <None Include="wwwroot\Images\Logos\fossil-group.svg" />
+    <None Include="wwwroot\Images\Logos\freedombird.svg" />
+    <None Include="wwwroot\Images\Logos\globe.svg" />
+    <None Include="wwwroot\Images\Logos\identity.svg" />
+    <None Include="wwwroot\Images\Logos\mail-icon-vector.svg" />
+    <None Include="wwwroot\Images\Logos\natural.svg" />
+    <None Include="wwwroot\Images\Logos\onatrix.svg" />
+    <None Include="wwwroot\Images\Logos\simpleaf.svg" />
+    <None Include="wwwroot\Images\Photos\hero.svg" />
+    <None Include="wwwroot\Images\Photos\kevin-gardner.svg" />
+    <None Include="wwwroot\Images\Photos\let-us-know.svg" />
+    <None Include="wwwroot\Images\Photos\meeting-risk.svg" />
+    <None Include="wwwroot\Images\Photos\meeting.svg" />
+    <None Include="wwwroot\Images\Services\risk-management.svg" />
+    <None Include="wwwroot\Images\Thumbnails\about-us-t.svg" />
+    <None Include="wwwroot\Images\Thumbnails\assurance-t.svg" />
+    <None Include="wwwroot\Images\Thumbnails\bonds-t.svg" />
+    <None Include="wwwroot\Images\Thumbnails\financial-t.svg" />
+    <None Include="wwwroot\Images\Thumbnails\risk-t.svg" />
+    <None Include="wwwroot\Images\Thumbnails\statistic-t.svg" />
+    <None Include="wwwroot\Images\Thumbnails\tax-t.svg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="16.2.0" />

@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPageHeader>
+
+@using Umbraco.Cms.Core.PublishedCache
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Services.Navigation
+
+@inject IPublishedContentCache PublishedContentCache
+@inject IDocumentNavigationQueryService DocumentNavigationQueryService
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+
+@{
+	var selection = Model.Ancestors().ToArray();
+	var homePageDisplayName = "Home"; 
+	var isFirstItem = true; 
+}
+
+
+<section class="bg-bg-grey bg-no-repeat py-16 
+		[background-image:url('/Images/Backgrounds/dot-left-down.svg'),url('/Images/Backgrounds/dot-right-up.svg')]
+		[background-position:left_bottom,top_right]">
+	<div class="container mx-auto px-4">
+		<h1 class="text-center text-[2.5rem] text-primary font-bold">@Model.PageTitle</h1>
+		<div class="flex justify-center gap-3 pt-3">
+			@if (selection?.Length > 0)
+			{
+				<ul class="flex items-center justify-center gap-2">
+
+					@foreach (var item in selection.OrderBy(x => x.Level))
+					{
+						var displayName = isFirstItem ? homePageDisplayName : item.Name;
+						<li class="flex items-center">
+							<a class="text-sm no-underline text-primary hover:text-tertiary" href="@item.Url(PublishedUrlProvider)">@displayName</a>
+							<i class="fa-solid fa-angle-right text-primary text-[10px] ml-1 flex justify-center items-center leading-none"></i>
+						</li>
+						isFirstItem = false; 
+					}
+					<li class="flex items-center">
+						<p class="text-tertiary text-sm">@Model.Name</p>
+					</li>
+				</ul>
+			}
+		</div>
+	</div>
+</section>
