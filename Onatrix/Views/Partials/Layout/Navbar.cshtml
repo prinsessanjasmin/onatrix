@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.PublishedCache
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Services.Navigation
+
+@inject IVariationContextAccessor VariationContextAccessor
+@inject IPublishedContentCache PublishedContentCache
+@inject IDocumentNavigationQueryService DocumentNavigationQueryService
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+@*
+    This snippet displays a list of links of the pages immediately under the top-most page in the content tree.
+    This is the home page for a standard website.
+    It also highlights the current active page/section in the navigation with the CSS class "current".
+*@
+
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+    var selection = Model.Root().Children().Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
+}
+
+
+<div class="bg-white">
+    <div class="container content flex flex-row items-center justify-between py-4">
+        <a href="/">
+            <img src="@siteSettings?.SiteLogo?.Url()" alt="@siteSettings?.SiteName" />
+        </a>
+        
+        <div class="flex items-center">
+            @if (selection?.Length > 0)
+            {
+                <ul class="flex flex-row gap-12 items-center">
+                    @foreach (var item in selection)
+                    {
+                        <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
+                            <a class="text-base font-bold text-primary hover:text-secondary transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+        <div>
+            <i class="fa-solid fa-magnifying-glass text-primary"></i>
+        </div>
+    </div>
+    
+</div>
+
