@@ -31,6 +31,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
     --radius-sm: 0.25rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -44,9 +45,6 @@
     --color-bg-grey: #F7F7F7;
     --color-border: #EAEAEA;
     --font-poppins: "Poppins", sans-serif;
-    --text-rte-l: 1.25rem;
-    --text-rte-m: 1rem;
-    --text-rte-s: 0.875rem;
   }
 }
 @layer base {
@@ -456,15 +454,6 @@
   .text-\[2\.5rem\] {
     font-size: 2.5rem;
   }
-  .text-rte-l {
-    font-size: var(--text-rte-l);
-  }
-  .text-rte-m {
-    font-size: var(--text-rte-m);
-  }
-  .text-rte-s {
-    font-size: var(--text-rte-s);
-  }
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
@@ -640,6 +629,46 @@ p {
 }
 .current a {
   color: var(--color-secondary);
+}
+.rte img {
+  width: 100%;
+  object-fit: cover;
+}
+.rte-ul {
+  padding-left: calc(var(--spacing) * 6);
+}
+.rte-ul li {
+  list-style-position: outside;
+  list-style-type: disc;
+  padding-block: calc(var(--spacing) * 2);
+}
+.rte-ul li::marker {
+  color: var(--color-tertiary);
+}
+.text-rte-h2 {
+  padding-top: calc(var(--spacing) * 4);
+  padding-bottom: calc(var(--spacing) * 2);
+  font-size: 2.5rem;
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+}
+.text-rte-l {
+  padding-bottom: calc(var(--spacing) * 1);
+  font-size: 1.25rem;
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+}
+.text-rte-m {
+  padding-bottom: calc(var(--spacing) * 1);
+  font-size: 1rem;
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+}
+.text-rte-s {
+  padding-bottom: calc(var(--spacing) * 1);
+  --tw-leading: var(--leading-relaxed);
+  line-height: var(--leading-relaxed);
+  color: 0,875rem;
 }
 @property --tw-rotate-x {
   syntax: "*";
