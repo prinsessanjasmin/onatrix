@@ -1,14 +1,49 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-    var content = (ContentModels.ServiceSection)Model.Content;
+	var content = (ContentModels.ServiceSection)Model.Content;
+	var settings = Model.Settings as ContentModels.ServiceSettings;
+
+	var sectionColor = settings?.ServiceBackgroundColor?.Color ?? "#ffffff";
+
+	var current = Umbraco.AssignedContentItem;
+	var siteRoot = current.Root(); 
+	var servicePage = siteRoot.Children<ServicesPage>()?.FirstOrDefault();
+
+	var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? [];
 }
 
-<section class="relative py-[7rem]">
-	<div class="container content relative z-10">
-		<div class="w-6/12 flex flex-col gap-8">
-			<p class="label">@content.ServiceLabel</p>
-			<h2>@content.ServiceTitel</h2>
+<section class="relative py-[4rem] bg-[@sectionColor]">
+	<div class="content">
+		<div class="flex flex-col gap-2 items-center">
+			@if (settings!.ShowServiceLabel)
+			{
+				<p class="label">@content.ServiceLabel</p>
+			}
+			<div>
+				<h2>@content.ServiceTitle</h2>
+			</div>
+			
+		</div>
+
+		<div class="mt-5 grid grid-cols-3 gap-4">
+			@if (items.Any())
+			{
+				@foreach (var item in items)
+				{
+					<div class="bg-white border-2 border-border w-full min-h-[350px] overflow-hidden transition-all hover:border-secondary hover:shadow-[0:4px_15px_rgba(0,0,0,0.1)]">
+						<a href="@item.Url()">
+							<h5 class="font-semibold p-6">@item.Name</h5>
+							<img class="block w-full h-[220px] object-cover" src="@(item.ServiceDetailThumbnail?.Url() ?? "~/Images/Thumbnails/about-us.svg")"/>
+							<p class="p-6">@item.ServiceDetailExcerpt</p>
+						</a>
+					</div>
+				}
+			} else
+			{
+				<p>No services available at the moment.</p>
+			}
+
 		</div>
 	</div>
 </section>
