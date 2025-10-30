@@ -86,14 +86,14 @@ p {
 }
 
 .text-rte-l {
-    @apply text-[1.25rem] leading-relaxed pb-1;
+    @apply text-[1.25rem] leading-relaxed pb-2;
 }
 
 .text-rte-m {
-    @apply text-[1rem] leading-relaxed pb-1;
+    @apply text-[1rem] leading-relaxed pb-2;
 }
 
 .text-rte-s {
-    @apply text-[0,875rem] leading-relaxed pb-1;
+    @apply text-[0,875rem] leading-relaxed pb-2;
 }
 

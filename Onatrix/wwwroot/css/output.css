@@ -451,6 +451,10 @@
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
   .text-\[2\.5rem\] {
     font-size: 2.5rem;
   }
@@ -491,6 +495,9 @@
   }
   .text-white {
     color: var(--color-white);
+  }
+  .italic {
+    font-style: italic;
   }
   .no-underline {
     text-decoration-line: none;
@@ -653,19 +660,19 @@ p {
   line-height: var(--leading-relaxed);
 }
 .text-rte-l {
-  padding-bottom: calc(var(--spacing) * 1);
+  padding-bottom: calc(var(--spacing) * 2);
   font-size: 1.25rem;
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
 }
 .text-rte-m {
-  padding-bottom: calc(var(--spacing) * 1);
+  padding-bottom: calc(var(--spacing) * 2);
   font-size: 1rem;
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
 }
 .text-rte-s {
-  padding-bottom: calc(var(--spacing) * 1);
+  padding-bottom: calc(var(--spacing) * 2);
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
   color: 0,875rem;

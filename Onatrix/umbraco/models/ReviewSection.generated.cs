@@ -50,12 +50,28 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Content
+		/// Reviewer Company
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("reviewContent")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString ReviewContent => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "reviewContent");
+		[ImplementPropertyType("reviewerCompany")]
+		public virtual string ReviewerCompany => this.Value<string>(_publishedValueFallback, "reviewerCompany");
+
+		///<summary>
+		/// Reviewer Name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewerName")]
+		public virtual string ReviewerName => this.Value<string>(_publishedValueFallback, "reviewerName");
+
+		///<summary>
+		/// Grade
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewGrade")]
+		public virtual string ReviewGrade => this.Value<string>(_publishedValueFallback, "reviewGrade");
 
 		///<summary>
 		/// Headline
@@ -80,5 +96,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("reviewLabel")]
 		public virtual string ReviewLabel => this.Value<string>(_publishedValueFallback, "reviewLabel");
+
+		///<summary>
+		/// Review Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewText")]
+		public virtual string ReviewText => this.Value<string>(_publishedValueFallback, "reviewText");
 	}
 }

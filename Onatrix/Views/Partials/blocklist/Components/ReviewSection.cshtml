@@ -5,11 +5,60 @@
 }
 
 <section class="relative py-[7rem]">
-	<div class="container content relative flex gap-8">
+	<div class="container content relative flex gap-4">
 		<div class="w-6/12 flex flex-col gap-8">
 			<p class="label">@content.ReviewLabel</p>
 			<h2>@content.ReviewHeadline</h2>
-			<div>@Html.Raw(content.ReviewContent)</div>
+			<div class="flex flex-col gap-4">
+				<p class="text-xl italic">@content.ReviewText</p>
+				<div class="flex flex-row">
+					@switch (content.ReviewGrade)
+					{
+						case "1":
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							break;
+
+						case "2":
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							break;
+
+						case "3":
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							break;
+
+						case "4":
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-regular fa-star"></i>
+							break;
+
+						case "5":
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							<i class="fa-solid fa-star"></i>
+							break;
+					}
+				</div>
+				<p class="text-sm">@content.ReviewerName</p>
+				<p class="text-xl italic">@content.ReviewerCompany</p>
+			</div>
+			
 		</div>
 		<div class="flex">
 			<img src="@content.ReviewImage?.Url()" />
