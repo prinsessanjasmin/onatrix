@@ -1,0 +1,190 @@
+﻿{
+    "name": "Onatrix Rte",
+    "alias": "Onatrix.Rte",
+    "extensions": [
+        {
+            "type": "tiptapToolbarExtension",
+            "kind": "styleMenu",
+            "alias": "Onatrix.Tiptap.StyleMenu",
+            "name": "Onatrix Tiptap Style Menu",
+            "meta": {
+                "alias": "OnatrixStyleMenu",
+                "icon": "icon-palette",
+                "label": "Onatrix styles"
+            },
+            "items": [
+                {
+                    "label": "Heading",
+                    "items": [
+                        {
+                            "label": "H2",
+                            "items": [
+                                {
+                                    "label": "Light",
+                                    "data": {
+                                        "tag": "h2",
+                                        "class": "font-light"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Regular",
+                                    "data": {
+                                        "tag": "h2",
+                                        "class": "font-normal"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Bold",
+                                    "data": {
+                                        "tag": "h2",
+                                        "class": "font-bold"
+                                    },
+                                    "appearance": {}
+                                }
+                            ]
+
+                        }
+                    ]
+                },
+                {
+                    "label": "Paragraphs",
+                    "items": [
+                        {
+                            "label": "L",
+                            "items": [
+                                {
+                                    "label": "Light",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-l font-light"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Regular",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-l font-normal"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Bold",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-l font-bold"
+                                    },
+                                    "appearance": {}
+                                }
+                            ]
+                        },
+                        {
+                            "label": "M",
+                            "items": [
+                                {
+                                    "label": "Light",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-m font-light"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Regular",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-m font-normal"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Bold",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-m font-bold"
+                                    },
+                                    "appearance": {}
+                                }
+                            ]
+                        },
+                        {
+                            "label": "S",
+                            "items": [
+                                {
+                                    "label": "Light",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-s font-light"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Regular",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-s font-normal"
+                                    },
+                                    "appearance": {}
+                                },
+                                {
+                                    "label": "Bold",
+                                    "data": {
+                                        "tag": "p",
+                                        "class": "text-rte-s font-bold"
+                                    },
+                                    "appearance": {}
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Bullet",
+                    "data": {
+                        "tag": "ul",
+                        "class": "rte-ul"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "tiptapToolbarExtension",
+            "kind": "styleMenu",
+            "alias": "Onatrix.Tiptap.BrandColors",
+            "name": "Onatrix Tiptap Brand Colors",
+            "meta": {
+                "alias": "OnatrixBrandColors",
+                "icon": "icon-palette",
+                "label": "Onatrix Colors"
+            },
+            "items": [
+                {
+                    "label": "Dark grey",
+                    "data": {
+                        "tag": "span",
+                        "class": "text-primary"
+                    },
+                    "appearance": { "style": "background-color:#4f5955; color:#fff; padding:5px" }
+                },
+                {
+                    "label": "Powder pink",
+                    "data": {
+                        "tag": "span",
+                        "class": "text-secondary"
+                    },
+                    "appearance": { "style": "background-color:#F2EDDC; color:#fff; padding:5px" }
+                },
+                {
+                    "label": "Beige",
+                    "data": {
+                        "tag": "span",
+                        "class": "text-tertiary"
+                    },
+                    "appearance": { "style": "background-color:#D9C3A9; color:#fff; padding:5px" }
+                }
+            ]
+        }
+    ]
+}

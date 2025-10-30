@@ -11,6 +11,10 @@
     --color-white: #FFFFFF;
     --color-border: #EAEAEA;
     --font-poppins: "Poppins", sans-serif;
+    --text-rte-h2: 2.5rem;
+    --text-rte-l: 1.25rem;
+    --text-rte-m: 1rem;
+    --text-rte-s: 0.875rem;
 }
 
 body {
@@ -26,7 +30,7 @@ h1 {
 }
 
 h2 {
-    @apply text-4xl font-bold text-primary;
+    @apply text-4xl font-bold text-primary leading-normal;
 }
 
 h3 {
@@ -64,3 +68,7 @@ p {
 .current a {
     @apply text-secondary;
 }
+
+/*.rte-ul {
+    @apply 
+}*/
