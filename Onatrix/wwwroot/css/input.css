@@ -11,10 +11,6 @@
     --color-white: #FFFFFF;
     --color-border: #EAEAEA;
     --font-poppins: "Poppins", sans-serif;
-    --text-rte-h2: 2.5rem;
-    --text-rte-l: 1.25rem;
-    --text-rte-m: 1rem;
-    --text-rte-s: 0.875rem;
 }
 
 body {
@@ -69,6 +65,35 @@ p {
     @apply text-secondary;
 }
 
-/*.rte-ul {
-    @apply 
-}*/
+.rte img {
+    @apply object-cover w-full; 
+}
+
+.rte-ul {
+    @apply pl-6; 
+}
+
+.rte-ul li {
+    @apply list-disc list-outside py-2;
+}
+
+.rte-ul li::marker {
+    @apply text-tertiary; 
+}
+
+.text-rte-h2 {
+    @apply text-[2.5rem] leading-relaxed pb-2 pt-4;
+}
+
+.text-rte-l {
+    @apply text-[1.25rem] leading-relaxed pb-1;
+}
+
+.text-rte-m {
+    @apply text-[1rem] leading-relaxed pb-1;
+}
+
+.text-rte-s {
+    @apply text-[0,875rem] leading-relaxed pb-1;
+}
+
