@@ -18,18 +18,18 @@
 			<img src="@content.ContactSectionBgImage?.Url()" class="relative w-full h-full object-cover z-10 inset-0" />
 			<img src="@content.ContactSectionImage?.Url()" class="absolute object-cover z-10 inset-0 overflow-hidden" />
 		</div>
-		<div class="w-1/2 flex flex-col gap-8 py-[7rem] px-40">
+		<div class="w-1/2 flex flex-col gap-8 py-[7rem] px-20">
 			<h2>@content.ContactSectionHeadline</h2>
 			<div>
-				<p>Office location: </p>
+				<p class="font-bold"><span class="text-secondary pr-1"><i class="fa-solid fa-location-dot"></i></span>Office location</p>
 				<p>@contactAddress</p>
 			</div>
 			<div>
-				<p>Phone number: </p>
+				<p class="font-bold"><span class="text-secondary pr-1"><i class="fa-solid fa-phone-flip"></i></span>Phone number</p>
 				<p>@contactPhone</p>
 			</div>
 			<div>
-				<p>Email address</p>
+				<p class="font-bold"><span class="text-secondary pr-1"><i class="fa-solid fa-envelope"></i></span>Email address</p>
 				<p>@contactEmail</p>
 			</div>
 		</div>

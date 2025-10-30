@@ -10,11 +10,11 @@
 
 <section class="py-[7rem] bg-bg-grey">
 	<div class="container content">
-		<div class="flex flex-col items-center">
+		<div class="flex flex-col items-center justify-center">
 			<p class="label">@content.EmployeesLabel</p>
-			<h2>@content.EmployeesHeadline</h2>
+			<h2 class="max-w-[30ch] text-center">@content.EmployeesHeadline</h2>
 		</div>
-		<div class="flex flex-wrap gap-y-5 pt-5 pb-5 -mx-2">
+		<div class="flex flex-wrap gap-y-5 py-5 -mx-2 justify-center">
 			@if (employees != null)
 			{
 				@for (var i = 0; i < employees.Count; i++)
