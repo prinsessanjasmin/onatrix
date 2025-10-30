@@ -9,7 +9,6 @@
       "Courier New", monospace;
     --color-white: #FFFFFF;
     --spacing: 0.25rem;
-    --container-xs: 20rem;
     --container-7xl: 80rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
@@ -27,6 +26,8 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --leading-normal: 1.5;
@@ -43,6 +44,9 @@
     --color-bg-grey: #F7F7F7;
     --color-border: #EAEAEA;
     --font-poppins: "Poppins", sans-serif;
+    --text-rte-l: 1.25rem;
+    --text-rte-m: 1rem;
+    --text-rte-s: 0.875rem;
   }
 }
 @layer base {
@@ -238,9 +242,6 @@
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
   }
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
-  }
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
@@ -286,14 +287,8 @@
   .w-6\/12 {
     width: calc(6/12 * 100%);
   }
-  .w-8 {
-    width: calc(var(--spacing) * 8);
-  }
   .w-8\/12 {
     width: calc(8/12 * 100%);
-  }
-  .w-9 {
-    width: calc(var(--spacing) * 9);
   }
   .w-fit {
     width: fit-content;
@@ -405,9 +400,6 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
-  .p-5 {
-    padding: calc(var(--spacing) * 5);
-  }
   .p-6 {
     padding: calc(var(--spacing) * 6);
   }
@@ -444,6 +436,9 @@
   .pt-12 {
     padding-top: calc(var(--spacing) * 12);
   }
+  .pt-\[7rem\] {
+    padding-top: 7rem;
+  }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
   }
@@ -461,20 +456,30 @@
   .text-\[2\.5rem\] {
     font-size: 2.5rem;
   }
-  .text-\[10px\] {
-    font-size: 10px;
+  .text-rte-l {
+    font-size: var(--text-rte-l);
+  }
+  .text-rte-m {
+    font-size: var(--text-rte-m);
+  }
+  .text-rte-s {
+    font-size: var(--text-rte-s);
   }
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
   }
-  .leading-normal {
-    --tw-leading: var(--leading-normal);
-    line-height: var(--leading-normal);
-  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .font-light {
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+  }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
@@ -568,6 +573,8 @@ h1 {
 h2 {
   font-size: var(--text-4xl);
   line-height: var(--tw-leading, var(--text-4xl--line-height));
+  --tw-leading: var(--leading-normal);
+  line-height: var(--leading-normal);
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
