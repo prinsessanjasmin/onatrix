@@ -22,8 +22,6 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
     --font-weight-light: 300;
@@ -297,6 +295,9 @@
   .w-px {
     width: 1px;
   }
+  .max-w-\[30ch\] {
+    max-width: 30ch;
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
@@ -410,11 +411,14 @@
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
   }
-  .px-40 {
-    padding-inline: calc(var(--spacing) * 40);
+  .px-20 {
+    padding-inline: calc(var(--spacing) * 20);
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
+  }
+  .py-5 {
+    padding-block: calc(var(--spacing) * 5);
   }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
@@ -428,17 +432,26 @@
   .pt-3 {
     padding-top: calc(var(--spacing) * 3);
   }
-  .pt-5 {
-    padding-top: calc(var(--spacing) * 5);
-  }
   .pt-12 {
     padding-top: calc(var(--spacing) * 12);
   }
   .pt-\[7rem\] {
     padding-top: 7rem;
   }
+  .pr-1 {
+    padding-right: calc(var(--spacing) * 1);
+  }
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
+  }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
+  }
+  .pl-1 {
+    padding-left: calc(var(--spacing) * 1);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
   }
   .text-center {
     text-align: center;
@@ -450,6 +463,10 @@
   .text-sm {
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
   }
   .text-\[2\.5rem\] {
     font-size: 2.5rem;
@@ -491,6 +508,9 @@
   }
   .text-white {
     color: var(--color-white);
+  }
+  .italic {
+    font-style: italic;
   }
   .no-underline {
     text-decoration-line: none;
@@ -557,15 +577,16 @@ h1 {
   line-height: var(--tw-leading, var(--text-5xl--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  text-wrap: balance;
   color: var(--color-primary);
 }
 h2 {
-  font-size: var(--text-4xl);
-  line-height: var(--tw-leading, var(--text-4xl--line-height));
+  font-size: 2.5rem;
   --tw-leading: var(--leading-normal);
   line-height: var(--leading-normal);
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  text-wrap: balance;
   color: var(--color-primary);
 }
 h3 {
@@ -573,6 +594,7 @@ h3 {
   line-height: var(--tw-leading, var(--text-3xl--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  text-wrap: balance;
   color: var(--color-primary);
 }
 h4 {
@@ -580,6 +602,7 @@ h4 {
   line-height: var(--tw-leading, var(--text-2xl--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  text-wrap: balance;
   color: var(--color-primary);
 }
 h5 {
@@ -587,6 +610,7 @@ h5 {
   line-height: var(--tw-leading, var(--text-xl--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  text-wrap: balance;
   color: var(--color-primary);
 }
 h6 {
@@ -594,6 +618,7 @@ h6 {
   line-height: var(--tw-leading, var(--text-lg--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
+  text-wrap: balance;
   color: var(--color-primary);
 }
 p {
@@ -653,21 +678,24 @@ p {
   line-height: var(--leading-relaxed);
 }
 .text-rte-l {
-  padding-bottom: calc(var(--spacing) * 1);
+  padding-bottom: calc(var(--spacing) * 2);
   font-size: 1.25rem;
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
+  text-wrap: pretty;
 }
 .text-rte-m {
-  padding-bottom: calc(var(--spacing) * 1);
+  padding-bottom: calc(var(--spacing) * 2);
   font-size: 1rem;
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
+  text-wrap: pretty;
 }
 .text-rte-s {
-  padding-bottom: calc(var(--spacing) * 1);
+  padding-bottom: calc(var(--spacing) * 2);
   --tw-leading: var(--leading-relaxed);
   line-height: var(--leading-relaxed);
+  text-wrap: pretty;
   color: 0,875rem;
 }
 @property --tw-rotate-x {
