@@ -1,6 +1,13 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
+	var rootContent = Umbraco.ContentAtRoot();
+	var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+	var contactAddress = siteSettings?.ContactAddress ?? "No address available";
+	var contactPhone = siteSettings?.ContactPhone ?? "No phone number available";
+	var contactEmail = siteSettings?.ContactEmail ?? "No contact e-mail available";
+
     var content = (ContentModels.ContactSection)Model.Content;
     var settings = Model.Settings as ContentModels.ContactSection; // Cast Model.Settings safely using 'as' to avoid null reference exceptions
 }
@@ -16,15 +23,15 @@
 			<h2>@content.ContactSectionHeadline</h2>
 			<div>
 				<p>Office location: </p>
-				<p>@content.ContactSectionStreetAddress</p>
+				<p>@contactAddress</p>
 			</div>
 			<div>
 				<p>Phone number: </p>
-				<p>@content.ContactSectionPhoneNumber</p>
+				<p>@contactPhone</p>
 			</div>
 			<div>
 				<p>Email address</p>
-				<p>@content.ContactSectionEmailAddress</p>
+				<p>@contactEmail</p>
 			</div>
 		</div>
 	</div>
