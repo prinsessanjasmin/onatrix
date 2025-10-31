@@ -10,6 +10,9 @@
     --color-footer: #0E0E0E;
     --color-white: #FFFFFF;
     --color-border: #EAEAEA;
+    --color-error: #d30000;
+    --color-success: #0caa00;
+
     --font-poppins: "Poppins", sans-serif;
 }
 
@@ -97,3 +100,18 @@ p {
     @apply text-[0,875rem] leading-relaxed pb-2 text-pretty;
 }
 
+.form-input {
+    @apply text-sm italic text-text w-full p-4 border border-border focus:ring-primary focus:outline-none;
+}
+
+.form-btn {
+    @apply w-full flex text-center justify-center py-3 px-12 text-base cursor-pointer hover:bg-tertiary font-bold;
+}
+
+.field-validation-error {
+    @apply text-error; 
+}
+
+.input-validation-error {
+    @apply border-error focus:ring-1 focus:ring-error;
+}
