@@ -1,17 +1,23 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-    var content = (ContentModels.ReviewSection)Model.Content;
+	var content = (ContentModels.ReviewSection)Model.Content;
+	var settings = Model.Settings as ContentModels.ReviewSettings;
+
+	var sectionColor = settings?.ReviewBackgroundColor?.Color ?? "white";
 }
 
-<section class="relative py-[7rem]">
-	<div class="container content relative flex gap-4">
-		<div class="w-6/12 flex flex-col gap-8">
-			<p class="label">@content.ReviewLabel</p>
-			<h2">@content.ReviewHeadline</h2>
-			<div class="flex flex-col gap-4">
+<section class="relative py-[7rem]" style="background-color: @sectionColor">
+	<div class="container content relative flex gap-8">
+		<div class="w-6/12 flex flex-col gap-4">
+			@if (settings!.ShowReviewLabel)
+			{
+				<p class="label">@content.ReviewLabel</p>
+			}
+			<h2>@content.ReviewHeadline</h2>
+			<div class="flex flex-col gap-4 pt-4">
 				<p class="text-xl italic">@content.ReviewText</p>
-				<div class="flex flex-row">
+				<div class="flex flex-row text-text">
 					@switch (content.ReviewGrade)
 					{
 						case "1":
@@ -55,10 +61,9 @@
 							break;
 					}
 				</div>
-				<p class="text-sm">@content.ReviewerName</p>
-				<p class="text-xl italic">@content.ReviewerCompany</p>
-			</div>
-			
+				<p class="text-sm text-text">@content.ReviewerName</p>
+				<p class="text-xl font-normal italic">@content.ReviewerCompany</p>
+			</div>	
 		</div>
 		<div class="flex">
 			<img src="@content.ReviewImage?.Url()" />

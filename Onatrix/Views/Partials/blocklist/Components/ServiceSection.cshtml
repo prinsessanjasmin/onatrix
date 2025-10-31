@@ -4,7 +4,7 @@
 	var content = (ContentModels.ServiceSection)Model.Content;
 	var settings = Model.Settings as ContentModels.ServiceSettings;
 
-	var sectionColor = settings?.ServiceBackgroundColor?.Color ?? "#ffffff";
+	var sectionColor = settings?.ServiceBackgroundColor?.Color ?? "white";
 
 	var current = Umbraco.AssignedContentItem;
 	var siteRoot = current.Root(); 
@@ -13,7 +13,7 @@
 	var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? [];
 }
 
-<section class="relative py-[4rem] bg-[@sectionColor]">
+<section class="relative py-[4rem]" style="background-color: @sectionColor">
 	<div class="content">
 		<div class="flex flex-col gap-2 items-center">
 			@if (settings!.ShowServiceLabel)

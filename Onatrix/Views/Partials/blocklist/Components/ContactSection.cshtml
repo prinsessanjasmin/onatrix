@@ -9,16 +9,22 @@
 	var contactEmail = siteSettings?.ContactEmail ?? "No contact e-mail available";
 
     var content = (ContentModels.ContactSection)Model.Content;
-    var settings = Model.Settings as ContentModels.ContactSection; // Cast Model.Settings safely using 'as' to avoid null reference exceptions
+    var settings = Model.Settings as ContentModels.ContactSettings; 
+
+	var sectionColor = settings?.ContactBackgroundColor?.Color; 
 }
 
-<section class="pt-[7rem] overflow-hidden">
+<section class="overflow-hidden pt-[7rem]" style="background-color: @sectionColor"> 
 	<div class="container content relative flex gap-12">
 		<div class="w-1/2 relative">
 			<img src="@content.ContactSectionBgImage?.Url()" class="relative w-full h-full object-cover z-10 inset-0" />
 			<img src="@content.ContactSectionImage?.Url()" class="absolute object-cover z-10 inset-0 overflow-hidden" />
 		</div>
 		<div class="w-1/2 flex flex-col gap-8 py-[7rem] px-20">
+			@if (settings!.ShowContactLabel)
+			{
+				<p class="label">@content.ContactLabel</p>
+			}
 			<h2>@content.ContactSectionHeadline</h2>
 			<div>
 				<p class="font-bold"><span class="text-secondary pr-1"><i class="fa-solid fa-location-dot"></i></span>Office location</p>
