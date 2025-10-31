@@ -1,17 +1,23 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-    var content = (ContentModels.EmployeesSection)Model.Content;
+	var content = (ContentModels.EmployeesSection)Model.Content;
+	var settings = Model.Settings as ContentModels.EmployeesSettings;
+	
 	var employees = content.EmployeesList;
+	var sectionColor = settings?.EmployeesBackgroundColor?.Color ?? "white";
 
 }
 
 
 
-<section class="py-[7rem] bg-bg-grey">
+<section class="py-[7rem]" style="background-color: @sectionColor">
 	<div class="container content">
 		<div class="flex flex-col items-center justify-center">
-			<p class="label">@content.EmployeesLabel</p>
+			@if (settings!.ShowEmployeesLabel)
+			{
+				<p class="label">@content.EmployeesLabel</p>
+			}
 			<h2 class="max-w-[30ch] text-center">@content.EmployeesHeadline</h2>
 		</div>
 		<div class="flex flex-wrap gap-y-5 py-5 -mx-2 justify-center">
