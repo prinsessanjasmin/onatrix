@@ -1,15 +1,30 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Onatrix.umbraco.models;
 @{
-    var content = (ContentModels.CallbackSection)Model.Content;
+	var content = (ContentModels.CallbackSection)Model.Content;
+	var settings = Model.Settings as ContentModels.CallbackSettings;
+	var formViewModel = new CallbackFormViewModel
+	{
+		Options = settings?.CallbackRequestOptions ?? []
+	};
 }
 
 <section class="relative py-[7rem]">
-	<div class="container content relative z-10">
-		<div class="w-6/12 flex flex-col gap-8">
+	<div class="container content relative z-10 flex flex-row">
+		<div class="w-7/12 flex flex-col gap-8">
 			<p class="label">@content.CallbackLabel</p>
 			<h2>@content.CallbackHeadline</h2>
 			<div>@Html.Raw(content.CallbackText)</div>
+		</div>
+		<div class="w-5/12 shadow-md -mt-[11rem] z-[99] flex flex-col gap-4">
+			<div class="bg-primary">
+				<h3 class="!text-secondary p-[2rem]">@content.AboutFormTitle</h3>
+			</div>
+			<div>
+				<p class="text-note text-sm italic text-text w-full py-6 px-8">@content.AboutFormDescription</p>
+				<partial name="Partials/CallbackForm" model="formViewModel" />
+			</div>
 		</div>
 	</div>
 </section>
