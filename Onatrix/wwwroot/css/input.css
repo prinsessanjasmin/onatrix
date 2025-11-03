@@ -50,6 +50,10 @@ h6 {
     @apply text-lg font-bold text-primary text-balance;
 }
 
+.success-number {
+    @apply text-[6.25rem] font-semibold text-tertiary;
+}
+
 p {
     @apply text-base; 
 }
