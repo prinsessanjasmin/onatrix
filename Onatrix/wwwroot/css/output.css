@@ -42,6 +42,7 @@
     --color-note: #9C9EA6;
     --color-bg-grey: #F7F7F7;
     --color-border: #EAEAEA;
+    --color-light-grey: #ECECEC;
     --color-error: #d30000;
     --color-success: #0caa00;
     --font-poppins: "Poppins", sans-serif;
@@ -628,6 +629,101 @@
       }
     }
   }
+  .md\:mx-auto {
+    @media (width >= 48rem) {
+      margin-inline: auto;
+    }
+  }
+  .md\:max-w-7xl {
+    @media (width >= 48rem) {
+      max-width: var(--container-7xl);
+    }
+  }
+  .md\:\!px-4 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 4) !important;
+    }
+  }
+  .md\:px-4 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 4);
+    }
+  }
+}
+.custom-pagination {
+  display: none;
+  @media (width >= 48rem) {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  @media (width >= 48rem) {
+    display: flex;
+  }
+  @media (width >= 48rem) {
+    align-items: center;
+  }
+  @media (width >= 48rem) {
+    justify-content: center;
+  }
+  @media (width >= 48rem) {
+    gap: calc(var(--spacing) * 4);
+  }
+  @media (width >= 48rem) {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  @media (width >= 48rem) {
+    padding-block: calc(var(--spacing) * 2);
+  }
+}
+.custom-prev, .custom-next {
+  display: flex;
+  font-size: var(--text-lg);
+  line-height: var(--tw-leading, var(--text-lg--line-height));
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  cursor: pointer !important;
+}
+.swiper-pagination {
+  position: relative !important;
+  bottom: calc(var(--spacing) * 0) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacing) * 2);
+}
+.swiper-button-disabled {
+  cursor: default;
+  color: var(--color-border);
+}
+.swiper-pagination-bullet {
+  display: flex !important;
+  display: flex;
+  cursor: pointer;
+  border-radius: calc(infinity * 1px);
+  background-color: var(--color-white) !important;
+  padding: calc(var(--spacing) * 6);
+  font-size: var(--text-lg);
+  line-height: var(--tw-leading, var(--text-lg--line-height));
+  --tw-font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary) !important;
+}
+.swiper-pagination-bullet:hover {
+  color: var(--color-primary);
+  outline-style: var(--tw-outline-style);
+  outline-width: 1px;
+  outline-color: var(--color-light-grey);
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--color-white) !important;
+  color: var(--color-primary);
+  outline-style: var(--tw-outline-style);
+  outline-width: 1px;
+  outline-color: var(--color-light-grey);
+}
+.swiper-pagination-bullet span {
+  align-self: center !important;
+  justify-self: center !important;
 }
 body {
   font-family: var(--font-poppins);
@@ -969,6 +1065,11 @@ p {
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -1007,6 +1108,7 @@ p {
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
+      --tw-outline-style: solid;
     }
   }
 }
