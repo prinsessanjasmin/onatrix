@@ -51,7 +51,8 @@ h6 {
 }
 
 .success-number {
-    @apply text-[6.25rem] font-semibold text-tertiary;
+    @apply text-[6.25rem] font-semibold z-25;
+    color: #D9C3A9 !important;
 }
 
 p {

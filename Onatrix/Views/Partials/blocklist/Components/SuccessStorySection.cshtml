@@ -1,21 +1,35 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-    var content = (ContentModels.SuccessStorySection)Model.Content;
+	var content = (ContentModels.SuccessStorySection)Model.Content;
+	var examples = content.SuccessStoryExample?.ToList() ?? new List<Umbraco.Cms.Core.Models.Blocks.BlockListItem>();
 }
 
-<section class="relative py-[7rem] bg-primary">
-	<div class="container content relative z-10 bg-center bg-[url('/Images/Backgrounds/dot-map-dark-bg.svg')]">
-		<div class="w-6/12 flex flex-col gap-8">
-			<p class="label">@content.SuccessStoryLabel</p>
-			<h2>@content.SuccessStoryHeadline</h2>
-			<div class="flex gap-4 justify-between">
-				<h2 class="success-number">100</h2>
-				<h2 class="success-number">200</h2>
-				<h2 class="success-number">300</h2>
-			</div>
+<section class="relative py-[7rem] bg-primary -mb-24">
+	<div class="container content relative bg-[url('/Images/Backgrounds/dot-map-dark-bg.svg')] bg-no-repeat">
+		<div class="flex flex-col gap-4 justify-center items-center mx-auto">
+            <div class="items-center justify-center text-center">
+                <p class="label">@content.SuccessStoryLabel</p>
+                <h2 class="!text-white z-10">@content.SuccessStoryHeadline</h2>
+            </div>
+            @if (examples?.Count > 0)
+            {
+                <div class="flex gap-8 justify-between items-start items-stretch mx-[4rem]">
+                    @for (var i = 0; i < Math.Min(3, examples.Count); i++)
+                    {
+                        // Had some help here from ChatGPT 4o with reaching the subcontent of the blocklist
+                        var example = (ContentModels.SuccessItem)examples[i].Content;
+
+                        <div class="flex flex-col justify-between text-center items-center w-1/3">
+                            <h2 class="success-number">@example.SuccessNumber</h2>
+                            <p class="text-white !text-[1.1rem]">@example.SuccessDescription</p>
+                        </div>
+                    }
+                </div>
+            }
+					
 			<div>
-				<img src="@content.SuccessStoryImage?.Url()"/>
+				<img class="px-4" src="@content.SuccessStoryImage?.Url()"/>
 			</div>
 		</div>
 	</div>
