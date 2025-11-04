@@ -1,5 +1,5 @@
 ﻿document.addEventListener("submit", function (e) {
-    if (e.target.matches("#callbackForm")) {
+    if (e.target.matches("#callbackForm" || "#contactMapForm")) {
         sessionStorage.setItem("scrollY", window.scrollY);
     }
 });

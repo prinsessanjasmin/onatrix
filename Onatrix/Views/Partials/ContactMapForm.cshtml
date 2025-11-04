@@ -1,36 +1,30 @@
 ﻿@using Onatrix.Controllers;
 @using Onatrix.umbraco.models
- 
+
 @model CallbackFormViewModel;
 
-@using (Html.BeginUmbracoForm ("HandleCallbackForm", "CallbackForm", FormMethod.Post, new{novalidate = "novalidate", id = "callbackForm"})) 
+@using (Html.BeginUmbracoForm("HandleCallbackForm", "CallbackForm", FormMethod.Post, new { novalidate = "novalidate", id = "callbackForm" }))
 {
-	
-	<div class="px-[2rem] flex flex-col gap-6" id="callbackForm">
-		@if (TempData["CallbackFormSuccess"] != null)
-		{
-			<h4 class="italic !text-success items-center justify-center text-center mt-[4rem]">@TempData["CallbackFormSuccess"]</h4>
-		}
-		else if (TempData["CallbackFormError"] != null)
-		{
-			<h4 class="!text-error italic items-center justify-center text-center">@TempData["CallbackFormError"]</h4>
-		}
-		else
-		{
+
+	<div class="px-[2rem] flex flex-col gap-6 " id="contactMapForm">
+		<div class="flex flex-row gap-6">
 			<div class="input-group">
 				<label class="sr-only" asp-for="Name"></label>
 				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" asp-for="Name" />
 				<span asp-validation-for="Name"></span>
 			</div>
 			<div class="input-group">
-				<label class="sr-only" asp-for="Email"></label>
-				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
-				<span asp-validation-for="Email"></span>
-			</div>
-			<div class="input-group">
 				<label class="sr-only" asp-for="Phone"></label>
 				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Phone)" asp-for="Phone" />
 				<span asp-validation-for="Phone"></span>
+			</div>
+			
+		</div>
+		<div class="flex flex-row gap-6">
+			<div class="input-group">
+				<label class="sr-only" asp-for="Email"></label>
+				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
+				<span asp-validation-for="Email"></span>
 			</div>
 			<div class="input-group relative">
 				<label class="sr-only" asp-for="SelectedService"></label>
@@ -46,10 +40,20 @@
 				</div>
 				<span asp-validation-for="SelectedService"></span>
 			</div>
-			<div class="pb-[2.5rem]">
-				<button type="submit" class="bg-secondary text-primary form-btn">Submit</button>
-			</div>
+		</div>
+		<div class="pb-[2.5rem]">
+			<button type="submit" class="bg-secondary text-primary form-btn">Submit</button>
+		</div>
+		
+		@if (TempData["CallbackFormSuccess"] != null)
+		{
+			<h4 class="italic !text-success items-center justify-center text-center mt-[4rem]">@TempData["CallbackFormSuccess"]</h4>
+		}
+		else if (TempData["CallbackFormError"] != null)
+		{
+			<h4 class="!text-error italic items-center justify-center text-center">@TempData["CallbackFormError"]</h4>
 		}
 	</div>
+
 }
 
