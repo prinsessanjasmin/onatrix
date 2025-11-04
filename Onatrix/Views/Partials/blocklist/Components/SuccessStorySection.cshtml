@@ -5,7 +5,7 @@
 	var examples = content.SuccessStoryExample?.ToList() ?? new List<Umbraco.Cms.Core.Models.Blocks.BlockListItem>();
 }
 
-<section class="relative py-[7rem] bg-primary -mb-24">
+<section class="relative pt-[7rem] bg-primary overflow-visible">
 	<div class="container content relative bg-[url('/Images/Backgrounds/dot-map-dark-bg.svg')] bg-no-repeat">
 		<div class="flex flex-col gap-4 justify-center items-center mx-auto">
             <div class="items-center justify-center text-center">
@@ -14,7 +14,7 @@
             </div>
             @if (examples?.Count > 0)
             {
-                <div class="flex gap-8 justify-between items-start items-stretch mx-[4rem]">
+                <div class="flex justify-between items-start items-stretch mx-[4rem]">
                     @for (var i = 0; i < Math.Min(3, examples.Count); i++)
                     {
                         // Had some help here from ChatGPT 4o with reaching the subcontent of the blocklist
@@ -27,9 +27,8 @@
                     }
                 </div>
             }
-					
-			<div>
-				<img class="px-4" src="@content.SuccessStoryImage?.Url()"/>
+            <div class="relative z-10 -mt-[9rem]">
+				<img class="px-4 translate-y-[33.33%]" src="@content.SuccessStoryImage?.Url()"/>
 			</div>
 		</div>
 	</div>

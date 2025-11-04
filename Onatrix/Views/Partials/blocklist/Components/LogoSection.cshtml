@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	var content = (ContentModels.LogoSection)Model.Content;
+	var logos = content.Logos?.ToList() ?? new List<Umbraco.Cms.Core.Models.Blocks.BlockListItem>();
+}
+
+<section class="relative pt-[16rem] pb-[2rem] bg-white">
+    <div class="container content relative ">
+        <div class="flex flex-col gap-4 justify-center items-center mx-auto">
+            @if (logos?.Count > 0)
+            {
+                <div class="flex gap-8 justify-between items-start items-stretch">
+                    @for (var i = 0; i < Math.Min(6, logos.Count); i++)
+                    {
+                        var logo = (ContentModels.LogoItem)logos[i].Content;
+
+                        <div class="flex justify-between items-center px-4">
+                            <a href="@logo.LogoCompanyUrl?.Url" target="_blank">
+                                <img class="" src="@logo.LogoImage?.Url()" alt="@logo.LogoCompanyName" />
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</section>
