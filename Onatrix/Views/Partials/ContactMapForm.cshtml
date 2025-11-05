@@ -5,28 +5,26 @@
 
 @using (Html.BeginUmbracoForm("HandleCallbackForm", "CallbackForm", FormMethod.Post, new { novalidate = "novalidate", id = "callbackForm" }))
 {
-
 	<div class="px-[2rem] flex flex-col gap-6 " id="contactMapForm">
-		<div class="flex flex-row gap-6">
-			<div class="input-group">
+		<div class="flex flex-row gap-6 px-10">
+			<div class="input-group w-1/2">
 				<label class="sr-only" asp-for="Name"></label>
 				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" asp-for="Name" />
 				<span asp-validation-for="Name"></span>
 			</div>
-			<div class="input-group">
-				<label class="sr-only" asp-for="Phone"></label>
-				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Phone)" asp-for="Phone" />
-				<span asp-validation-for="Phone"></span>
-			</div>
-			
-		</div>
-		<div class="flex flex-row gap-6">
-			<div class="input-group">
+			<div class="input-group w-1/2">
 				<label class="sr-only" asp-for="Email"></label>
 				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
 				<span asp-validation-for="Email"></span>
 			</div>
-			<div class="input-group relative">
+		</div>
+		<div class="flex flex-row gap-6 px-10">
+			<div class="input-group w-1/2">
+				<label class="sr-only" asp-for="Phone"></label>
+				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Phone)" asp-for="Phone" />
+				<span asp-validation-for="Phone"></span>
+			</div>
+			<div class="input-group w-1/2 relative">
 				<label class="sr-only" asp-for="SelectedService"></label>
 				<div>
 					<select class="form-input appearance-none w-full pr-10 not-italic" asp-for="SelectedService">
@@ -41,8 +39,8 @@
 				<span asp-validation-for="SelectedService"></span>
 			</div>
 		</div>
-		<div class="pb-[2.5rem]">
-			<button type="submit" class="bg-secondary text-primary form-btn">Submit</button>
+		<div class="pb-[2.5rem] !justify-center items-center">
+			<button type="submit" class="bg-primary text-secondary form-btn !w-min">Submit</button>
 		</div>
 		
 		@if (TempData["CallbackFormSuccess"] != null)
