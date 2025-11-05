@@ -1,11 +1,26 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Onatrix.umbraco.models;
+
 @{
     var content = (ContentModels.ContactMapSection)Model.Content;
+	var settings = Model.Settings as ContentModels.ContactMapSettings;
+	var bgImage = content.ContactMapBackgroundImage?.Url();
+	var formViewModel = new CallbackFormViewModel
+	{
+		Options = settings?.ContactMapOptions ?? []
+	};
 }
 
-<section class="relative py-[7rem]">
-	<div class="absolute inset-0">
-		<img class="w-full h-full object-cover" src="@content.ContactMapBackgroundImage?.Url()" alt="" />
+<section class="relative pt-[7rem] bg-no-repeat bg-cover overflow-visible" style="background-image: url('@bgImage')">
+	<div class="relative translate-y-[20%] flex !max-w-7xl mx-auto px-4 py-8 z-50 gap-4 bg-white shadow-md justify-center overflow-visible">
+		<div class="flex flex-col w-full justify-center">
+			<div class="flex flex-col gap-2 !pt-14 pb-10 text-center items-center justify-center">
+				<p class="label">@content.ContactMapFormLabel</p>
+				<h3 class="!text-primary p-[1rem] max-w-[25ch]">@content.ContactMapFormTitle</h3>
+				<p class="text-note text-sm italic text-text max-w-[70ch] ">@content.ContactMapFormDescription</p>
+			</div>
+			<partial name="Partials/ContactMapForm" model="formViewModel" />
+		</div>
 	</div>
 </section>
