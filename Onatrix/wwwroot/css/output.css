@@ -442,6 +442,9 @@
   .gap-y-5 {
     row-gap: calc(var(--spacing) * 5);
   }
+  .self-center {
+    align-self: center;
+  }
   .overflow-hidden {
     overflow: hidden;
   }

@@ -14,15 +14,13 @@
 
 <section class="relative py-[7rem] bg-no-repeat bg-cover" style="background-image: url('@bgImage')">
 	<div class="flex !max-w-7xl mx-auto px-4 py-8 z-[99] gap-4 bg-white shadow-md justify-center">
-		<div class="flex flex-col justify-center">
+		<div class="flex flex-col w-full justify-center">
 			<div class="flex flex-col gap-2 !pt-14 pb-10 text-center items-center justify-center">
 				<p class="label">@content.ContactMapFormLabel</p>
 				<h3 class="!text-primary p-[1rem] max-w-[25ch]">@content.ContactMapFormTitle</h3>
 				<p class="text-note text-sm italic text-text max-w-[70ch] ">@content.ContactMapFormDescription</p>
 			</div>
-			<div>
-				<partial name="Partials/ContactMapForm" model="formViewModel" />
-			</div>
+			<partial name="Partials/ContactMapForm" model="formViewModel" />
 		</div>
 	</div>
 </section>

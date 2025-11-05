@@ -5,7 +5,7 @@
 
 @using (Html.BeginUmbracoForm("HandleCallbackForm", "CallbackForm", FormMethod.Post, new { novalidate = "novalidate", id = "callbackForm" }))
 {
-	<div class="px-[2rem] flex flex-col gap-6 " id="contactMapForm">
+	<div class="px-[2rem] flex flex-col gap-6 justify-center" id="contactMapForm">
 		<div class="flex flex-row gap-6 px-10">
 			<div class="input-group w-1/2">
 				<label class="sr-only" asp-for="Name"></label>
@@ -13,16 +13,17 @@
 				<span asp-validation-for="Name"></span>
 			</div>
 			<div class="input-group w-1/2">
-				<label class="sr-only" asp-for="Email"></label>
-				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
-				<span asp-validation-for="Email"></span>
-			</div>
-		</div>
-		<div class="flex flex-row gap-6 px-10">
-			<div class="input-group w-1/2">
 				<label class="sr-only" asp-for="Phone"></label>
 				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Phone)" asp-for="Phone" />
 				<span asp-validation-for="Phone"></span>
+			</div>
+		</div>
+		<div class="flex flex-row gap-6 px-10">
+			
+			<div class="input-group w-1/2">
+				<label class="sr-only" asp-for="Email"></label>
+				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
+				<span asp-validation-for="Email"></span>
 			</div>
 			<div class="input-group w-1/2 relative">
 				<label class="sr-only" asp-for="SelectedService"></label>
@@ -39,8 +40,8 @@
 				<span asp-validation-for="SelectedService"></span>
 			</div>
 		</div>
-		<div class="pb-[2.5rem] !justify-center items-center">
-			<button type="submit" class="bg-primary text-secondary form-btn !w-min">Submit</button>
+		<div class="flex pb-[2.5rem] justify-center items-center">
+			<button type="submit" class="bg-primary text-secondary form-btn !w-min self-center">Submit</button>
 		</div>
 		
 		@if (TempData["CallbackFormSuccess"] != null)
