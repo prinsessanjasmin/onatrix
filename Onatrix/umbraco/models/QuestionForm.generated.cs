@@ -66,6 +66,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string QuestionFormName => this.Value<string>(_publishedValueFallback, "questionFormName");
 
 		///<summary>
+		/// Origin Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("questionFormOriginPageTitle")]
+		public virtual string QuestionFormOriginPageTitle => this.Value<string>(_publishedValueFallback, "questionFormOriginPageTitle");
+
+		///<summary>
+		/// Origin Page Url
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("questionFormOriginPageUrl")]
+		public virtual string QuestionFormOriginPageUrl => this.Value<string>(_publishedValueFallback, "questionFormOriginPageUrl");
+
+		///<summary>
 		/// Question
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]

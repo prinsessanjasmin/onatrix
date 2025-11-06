@@ -17,4 +17,7 @@ public class QuestionFormViewModel
     [MinLength(10, ErrorMessage = "Your question must be at least 10 characters long.")]
     [Display(Name = "Question")]
     public string Question { get; set; } = null!;
+
+    public string? PageUrl { get; set; } 
+    public string? PageName { get; set; }
 }

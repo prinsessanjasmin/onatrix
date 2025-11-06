@@ -11,14 +11,16 @@ public class FormSubmissionService(IContentService contentService)
     {
         try
         {
-            var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
-            if (container == null)
+            var root = _contentService.GetRootContent();
+            var callbackSubmissions = root.FirstOrDefault(x => x.Name == "Callback Submissions");
+            
+            if (callbackSubmissions == null)
             {
                 return false;
             }
 
             var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Name}";
-            var request = _contentService.Create(requestName, container, "callbackRequest");
+            var request = _contentService.Create(requestName, callbackSubmissions, "callbackRequest");
 
             request.SetValue("callbackRequestName", model.Name);
             request.SetValue("callbackRequestEmail", model.Email);
@@ -35,22 +37,26 @@ public class FormSubmissionService(IContentService contentService)
         
     }
 
-    public bool SaveQuestionRequest(QuestionFormViewModel model)
+    public bool SaveQuestionRequest(QuestionFormViewModel model, string pageTitle, string pageUrl)
     {
         try
         {
-            var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
-            if (container == null)
+            var root = _contentService.GetRootContent();
+            var questionSubmissions = root.FirstOrDefault(x => x.Name == "Question Submissions");
+
+            if (questionSubmissions == null)
             {
                 return false;
             }
 
             var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Name}";
-            var request = _contentService.Create(requestName, container, "questionForm");
+            var request = _contentService.Create(requestName, questionSubmissions, "questionForm");
 
             request.SetValue("questionFormName", model.Name);
             request.SetValue("questionFormEmail", model.Email);
             request.SetValue("questionFormQuestion", model.Question);
+            request.SetValue("questionFormOriginPageTitle", pageTitle);
+            request.SetValue("questionFormOriginPageUrl", pageUrl);
 
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
@@ -65,14 +71,16 @@ public class FormSubmissionService(IContentService contentService)
     {
         try
         {
-            var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
-            if (container == null)
+            var root = _contentService.GetRootContent();
+            var emailSubmissions = root.FirstOrDefault(x => x.Name == "Email Submissions");
+
+            if (emailSubmissions == null)
             {
                 return false;
             }
 
             var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Email}";
-            var request = _contentService.Create(requestName, container, "emailForm");
+            var request = _contentService.Create(requestName, emailSubmissions, "emailForm");
 
             request.SetValue("emailFormEmail", model.Email);
 
