@@ -23,7 +23,11 @@ public class QuestionFormController(IUmbracoContextAccessor umbracoContextAccess
             return CurrentUmbracoPage();
         }
 
-        var result = _formSubmissions.SaveQuestionRequest(model);
+        var currentPage = CurrentPage;
+        var pageName = currentPage?.Name ?? "";
+        var pageUrl = currentPage?.Url() ?? "";
+
+        var result = _formSubmissions.SaveQuestionRequest(model, pageName, pageUrl);
         if (!result)
         {
             TempData["QuestionFormError"] = "Something went wrong while submitting your question. Please try again later.";

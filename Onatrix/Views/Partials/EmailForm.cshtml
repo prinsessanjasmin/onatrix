@@ -1,0 +1,25 @@
+﻿@using Onatrix.Controllers;
+@using Onatrix.umbraco.models;
+
+@model EmailFormViewModel;
+
+@using (Html.BeginUmbracoForm("HandleEmailForm", "EmailForm", FormMethod.Post, new { novalidate = "novalidate", id = "emailForm" }))
+{
+	<div id="emailForm">
+		<div class="input-group relative">
+			<label class="sr-only" asp-for="Email"></label>
+			<input class="form-input bg-white" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
+			<span asp-validation-for="Email"></span>
+		</div>
+	</div>
+	
+	
+	@if (TempData["EmailFormSuccess"] != null)
+	{
+		<h5 class="italic !text-success items-center justify-center text-center my-[4rem]">@TempData["EmailFormSuccess"]</h5>
+	}
+	else if (TempData["EmailFormError"] != null)
+	{
+		<h5 class="!text-error italic items-center justify-center text-center my-[4rem]">@TempData["EmailFormError"]</h5>
+	}
+}
