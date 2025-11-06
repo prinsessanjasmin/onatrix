@@ -46,6 +46,7 @@
     <None Include="wwwroot\Images\Thumbnails\risk-t.svg" />
     <None Include="wwwroot\Images\Thumbnails\statistic-t.svg" />
     <None Include="wwwroot\Images\Thumbnails\tax-t.svg" />
+    <None Include="wwwroot\media\onatrix.svg" />
   </ItemGroup>
 
   <ItemGroup>

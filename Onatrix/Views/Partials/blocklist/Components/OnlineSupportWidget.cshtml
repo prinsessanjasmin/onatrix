@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Onatrix.umbraco.models;
+
+@{
+	var content = (ContentModels.OnlineSupportWidget)Model.Content;
+	var formViewModel = new EmailFormViewModel();
+}
+
+<div class="flex flex-col gap-4 mb-6 p-4 bg-primary bg-[url('/Images/Logos/mail-icon-vector')] bg-no-repeat bg-right-bottom bg-rotate-45">
+	<h5 class="!font-light !text-white">@content.OnlineSupportWidgetTitle</h5>
+	<p class="text-white">@content.OnlineSupportWidgetDescription</p>
+	<partial name="Partials/EmailForm" model="formViewModel" />
+</div>
+
