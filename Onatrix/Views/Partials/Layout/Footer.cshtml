@@ -1,9 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
+	var rootContent = Umbraco.ContentAtRoot();
+	var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 }
 
-<div >
-
+<div class="!bg-footer">
+	<div class="container content flex items-center justify-center p-4">
+		<p>© @siteSettings?.SiteName @DateTime.Now.Year. @siteSettings?.FooterText Credits to <a href="@siteSettings?.FooterCreditUrl" target="_blank"><span class="text-tertiary">@siteSettings?.FooterCreditName</span></a> </p>
+	</div>
 </div>
+

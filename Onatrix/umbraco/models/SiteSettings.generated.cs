@@ -74,6 +74,30 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ContactPhone => this.Value<string>(_publishedValueFallback, "contactPhone");
 
 		///<summary>
+		/// Footer Credit Name: Enter the name of any company or site that needs credit here.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerCreditName")]
+		public virtual string FooterCreditName => this.Value<string>(_publishedValueFallback, "footerCreditName");
+
+		///<summary>
+		/// Footer Credit URL
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerCreditUrl")]
+		public virtual global::Umbraco.Cms.Core.Models.Link FooterCreditUrl => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "footerCreditUrl");
+
+		///<summary>
+		/// Footer Text: For example: "All rights reserved.".
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerText")]
+		public virtual string FooterText => this.Value<string>(_publishedValueFallback, "footerText");
+
+		///<summary>
 		/// Site Logo
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
