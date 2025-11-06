@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Onatrix.umbraco.models;
+@{
+	var content = (ContentModels.ServiceForm)Model.Content;
+	var formViewModel = new QuestionFormViewModel();
+}
+
+<section class="relative pb-[2rem]">
+	<div class="container content relative z-10 flex flex-col gap-4">
+		<h4>@content.ServiceFormTitle</h4>
+		<div>
+			<partial name="Partials/QuestionForm" model="formViewModel" />
+		</div>
+	</div>
+</section>

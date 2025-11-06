@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Service Item</summary>
-	[PublishedModel("serviceItem")]
-	public partial class ServiceItem : PublishedElementModel
+	/// <summary>Question Form</summary>
+	[PublishedModel("questionForm")]
+	public partial class QuestionForm : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		public new const string ModelTypeAlias = "serviceItem";
+		public new const string ModelTypeAlias = "questionForm";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<ServiceItem, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<QuestionForm, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ServiceItem(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public QuestionForm(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,35 +50,27 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Service Body Text
+		/// Email
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceBodyText")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString ServiceBodyText => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "serviceBodyText");
+		[ImplementPropertyType("questionFormEmail")]
+		public virtual string QuestionFormEmail => this.Value<string>(_publishedValueFallback, "questionFormEmail");
 
 		///<summary>
-		/// Service Image
+		/// Name
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ServiceImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "serviceImage");
+		[ImplementPropertyType("questionFormName")]
+		public virtual string QuestionFormName => this.Value<string>(_publishedValueFallback, "questionFormName");
 
 		///<summary>
-		/// Service Short Description
+		/// Question
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceShortDescription")]
-		public virtual string ServiceShortDescription => this.Value<string>(_publishedValueFallback, "serviceShortDescription");
-
-		///<summary>
-		/// Service Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceTitle")]
-		public virtual string ServiceTitle => this.Value<string>(_publishedValueFallback, "serviceTitle");
+		[ImplementPropertyType("questionFormQuestion")]
+		public virtual string QuestionFormQuestion => this.Value<string>(_publishedValueFallback, "questionFormQuestion");
 	}
 }

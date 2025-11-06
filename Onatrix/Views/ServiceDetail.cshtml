@@ -6,8 +6,8 @@
 
 <partial name="Partials/Layout/PageHeader" model="(IPageHeader)Model" />
 
-<section class="py-[7rem]">
-	<div class="content">
+<section class="py-[4rem]">
+	<div class="content flex flex-col">
 		<div class="flex flex-row justify-between">
 			<aside class="w-3/12 flex flex-col gap-4">
 				@Html.GetBlockListHtml(Model.ServiceDetailAsides)
@@ -15,7 +15,8 @@
 			<div class="block w-px bg-border"></div>
 			<div class="w-8/12 flex flex-col gap-2 rte">
 				@Html.Raw(Model.ServiceDetailBody)
-			</div>
+			</div>			
 		</div>
 	</div>
 </section>
+@Html.GetBlockListHtml(Model.Sections)
