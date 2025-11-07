@@ -4,13 +4,13 @@
 	var content = (ContentModels.CompanyPresentationSection)Model.Content;
 }
 
-<section class="relative py-[7rem]">
-	<div class="container content flex flex-row gap-8 relative z-10">
-		<div class="w-4/12 flex flex-col">
-			<img class="w-full object-cover" src="@content.CompanyPresentationImage?.Url()" alt="@content.CompanyPresentationImageCaption"/> 
+<section class="relative py-[2rem] lg:py-[7rem]">
+	<div class="container content flex flex-col md:flex-row gap-4 md:gap-8 relative z-10">
+		<div class="md:w-4/12 flex flex-col">
+			<img class="w-full h-[15rem] object-[100%_15%] md:h-[25rem] lg:h-full md:object-[35%_100%] lg:w-full object-cover" src="@content.CompanyPresentationImage?.Url()" alt="@content.CompanyPresentationImageCaption" />
 			<p class="italic">@content.CompanyPresentationImageCaption</p>
 		</div>
-		<div class="w-8/12 flex flex-col rte">
+		<div class="md:w-8/12 flex flex-col rte">
 			@Html.Raw(content.CompanyPresentationText)
 		</div>
 	</div>
