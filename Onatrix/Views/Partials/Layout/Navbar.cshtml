@@ -23,13 +23,13 @@
 }
 
 
-<div class="bg-white">
-    <div class="container content flex flex-row items-center justify-between py-4">
+<div class="bg-white !sticky top-0 z-50">
+    <nav class="container content flex flex-row items-center justify-between py-4">
         <a href="/">
             <img src="@siteSettings?.SiteLogo?.Url()" alt="@siteSettings?.SiteName" />
         </a>
         
-        <div class="flex items-center">
+        <div class="hidden md:flex items-center">
             @if (selection?.Length > 0)
             {
                 <ul class="flex flex-row gap-12 items-center">
@@ -42,10 +42,28 @@
                 </ul>
             }
         </div>
-        <div>
-            <i class="fa-solid fa-magnifying-glass text-primary"></i>
+        <div class="flex gap-4 items-center">
+            <div>
+                <i class="fa-solid fa-magnifying-glass text-primary text-3xl md:text-base"></i>
+            </div>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <i class="fa-solid fa-bars text-primary text-3xl" viewBox="0 0 17 14" aria-hidden="true"></i>
+            </button>
         </div>
-    </div>
-    
+    </nav>
+</div>
+<div class="hidden w-full" id="navbar-default">
+    @if (selection?.Length > 0)
+    {
+        <ul class="flex flex-col p-4">
+            @foreach (var item in selection)
+            {
+                <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null) py-2">
+                    <a class="text-xl font-bold text-primary hover:text-secondary transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                </li>
+            }
+        </ul>
+    }
 </div>
 
