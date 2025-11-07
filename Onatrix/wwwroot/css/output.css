@@ -203,6 +203,9 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .invisible {
+    visibility: hidden;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -476,11 +479,17 @@
   .bg-\[url\(\'\/Images\/Backgrounds\/dots-behind-trust-us\.svg\'\)\] {
     background-image: url('/Images/Backgrounds/dots-behind-trust-us.svg');
   }
+  .bg-\[url\(\'\/Images\/Logos\/mail-icon-vector\'\)\] {
+    background-image: url('/Images/Logos/mail-icon-vector');
+  }
   .bg-cover {
     background-size: cover;
   }
   .\[background-position\:left_bottom\,top_right\] {
     background-position: left bottom,top right;
+  }
+  .bg-right-bottom {
+    background-position: right bottom;
   }
   .bg-top {
     background-position: top;
@@ -535,12 +544,6 @@
   }
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
-  }
-  .py-\[2\.5rem\] {
-    padding-block: 2.5rem;
-  }
-  .py-\[2rem\] {
-    padding-block: 2rem;
   }
   .py-\[4rem\] {
     padding-block: 4rem;
@@ -611,6 +614,10 @@
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
+  }
+  .\!font-light {
+    --tw-font-weight: var(--font-weight-light) !important;
+    font-weight: var(--font-weight-light) !important;
   }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
@@ -719,6 +726,11 @@
   .md\:mx-auto {
     @media (width >= 48rem) {
       margin-inline: auto;
+    }
+  }
+  .md\:block {
+    @media (width >= 48rem) {
+      display: block;
     }
   }
   .md\:max-w-7xl {
@@ -883,8 +895,10 @@ p {
 }
 .content {
   margin-inline: auto;
-  max-width: var(--container-7xl);
   padding-inline: calc(var(--spacing) * 4);
+  @media (width >= 48rem) {
+    max-width: var(--container-7xl);
+  }
 }
 .label {
   font-size: var(--text-sm);

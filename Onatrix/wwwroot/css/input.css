@@ -60,7 +60,7 @@ p {
 }
 
 .content {
-    @apply max-w-7xl mx-auto px-4;
+    @apply sm-w-full md:max-w-2xl lg:max-w-7xl mx-auto px-4;
 }
 
 .label {
