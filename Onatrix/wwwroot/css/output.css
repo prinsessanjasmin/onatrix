@@ -909,6 +909,11 @@
       gap: calc(var(--spacing) * 8);
     }
   }
+  .lg\:py-\[4rem\] {
+    @media (width >= 64rem) {
+      padding-block: 4rem;
+    }
+  }
   .lg\:py-\[7rem\] {
     @media (width >= 64rem) {
       padding-block: 7rem;
