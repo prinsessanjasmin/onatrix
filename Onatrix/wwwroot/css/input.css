@@ -23,7 +23,7 @@ body {
 }
 
 .hero-title {
-    @apply text-[4.2rem] leading-20 font-bold text-text;
+    @apply text-center md:text-left text-[2.5rem] lg:text-[4.2rem] leading-15 md:leading-10 lg:leading-20 font-bold text-text;
 }
 
 h1 {
@@ -60,7 +60,7 @@ p {
 }
 
 .content {
-    @apply sm-w-full md:max-w-2xl lg:max-w-7xl mx-auto px-4;
+    @apply sm:w-full md:max-w-2xl lg:max-w-7xl mx-auto px-4;
 }
 
 .label {
