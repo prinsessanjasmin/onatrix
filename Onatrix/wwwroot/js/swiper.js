@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('#serviceSwiper', {
-        slidesPerView: 1.2,
+        slidesPerView: 1.1,
         spaceBetween: 16,
         centeredSlides: true,
         centeredSlidesBounds: true,

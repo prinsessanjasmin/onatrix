@@ -39,7 +39,7 @@ h3 {
 }
 
 h4 {
-    @apply text-2xl text-center md:text-start font-bold text-primary text-balance;
+    @apply text-[1.3rem] md:text-[1.375rem] text-center lg:text-start font-bold text-primary text-balance;
 }
 
 h5 {
@@ -104,7 +104,7 @@ p {
 }
 
 .text-rte-s {
-    @apply text-[0,875rem] leading-relaxed pb-2 text-pretty;
+    @apply text-[0.875rem] leading-relaxed pb-2 text-pretty;
 }
 
 .form-input {
