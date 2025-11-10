@@ -310,6 +310,9 @@
   .block {
     display: block;
   }
+  .contents {
+    display: contents;
+  }
   .flex {
     display: flex;
   }
@@ -826,6 +829,11 @@
   .md\:block {
     @media (width >= 48rem) {
       display: block;
+    }
+  }
+  .md\:contents {
+    @media (width >= 48rem) {
+      display: contents;
     }
   }
   .md\:flex {
