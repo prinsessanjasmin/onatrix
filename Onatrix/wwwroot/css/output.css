@@ -585,11 +585,23 @@
   .\!pt-14 {
     padding-top: calc(var(--spacing) * 14) !important;
   }
+  .pt-0 {
+    padding-top: calc(var(--spacing) * 0);
+  }
   .pt-3 {
     padding-top: calc(var(--spacing) * 3);
   }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
+  }
+  .pt-\[1-rem\] {
+    padding-top: 1-rem;
+  }
+  .pt-\[1rem\] {
+    padding-top: 1rem;
+  }
+  .pt-\[2-rem\] {
+    padding-top: 2-rem;
   }
   .pt-\[2rem\] {
     padding-top: 2rem;
@@ -605,6 +617,12 @@
   }
   .pr-10 {
     padding-right: calc(var(--spacing) * 10);
+  }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
+  }
+  .pb-8 {
+    padding-bottom: calc(var(--spacing) * 8);
   }
   .pb-10 {
     padding-bottom: calc(var(--spacing) * 10);
@@ -877,9 +895,19 @@
       gap: calc(var(--spacing) * 2);
     }
   }
+  .md\:gap-6 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 6);
+    }
+  }
   .md\:gap-8 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:overflow-hidden {
+    @media (width >= 48rem) {
+      overflow: hidden;
     }
   }
   .md\:object-cover {
@@ -917,6 +945,16 @@
       padding-inline: calc(var(--spacing) * 8);
     }
   }
+  .md\:px-10 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:px-20 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 20);
+    }
+  }
   .md\:px-\[2rem\] {
     @media (width >= 48rem) {
       padding-inline: 2rem;
@@ -950,6 +988,11 @@
   .md\:pt-\[4rem\] {
     @media (width >= 48rem) {
       padding-top: 4rem;
+    }
+  }
+  .md\:pt-\[7rem\] {
+    @media (width >= 48rem) {
+      padding-top: 7rem;
     }
   }
   .md\:pt-\[10rem\] {
@@ -1036,6 +1079,16 @@
   .lg\:gap-8 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 8);
+    }
+  }
+  .lg\:gap-12 {
+    @media (width >= 64rem) {
+      gap: calc(var(--spacing) * 12);
+    }
+  }
+  .lg\:px-20 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 20);
     }
   }
   .lg\:py-16 {
