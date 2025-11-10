@@ -1,9 +1,0 @@
-{
-    "dependencies": {
-        "@tailwindcss/cli": "^4.1.15",
-        "tailwindcss": "^4.1.15"
-    },
-    "scripts": {
-        "dev": "npx @tailwindcss/cli -i Onatrix/wwwroot/css/input.css -o Onatrix/wwwroot/css/output.css --watch"
-    }
-}
