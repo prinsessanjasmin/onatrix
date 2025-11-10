@@ -4,22 +4,21 @@
     var content = (ContentModels.TrustUsSection)Model.Content;
 }
 
-<section class="relative pt-[7rem] ">
+<section class="relative pt-[2rem] lg:pt-[7rem]">
 	<div class="container content relative">
 		<div class="flex flex-col gap-12 items-center justify-center bg-top bg-[url('/Images/Backgrounds/dots-behind-trust-us.svg')] bg-no-repeat">
-			<div class="w-1/2 flex flex-col gap-4 items-center justify-center">
+			<div class="xl:w-1/2 flex flex-col gap-4 items-center justify-center">
 				<div>
 					@Html.Raw(content.TrustUsHeadline)
-					
 				</div>
-				<p class="text-center text-base pb-5">@content.TrustUsText</p>
+				<p class="text-center text-base md:pb-5">@content.TrustUsText</p>
 				<div class="bg-primary px-10 py-4 rounded-sm flex w-fit">
 					<a href="@content.TrustUsLink?.Url">
 						<p class="text-secondary font-bold">@content.TrustUsLink?.Name</p>
 					</a>
 				</div>
 			</div>
-			<div class="pt-12">
+			<div class="lg:pt-12">
 				<img class="object-cover" src="@content.TrustUsImage?.Url()" alt="" />
 			</div>
 		</div>

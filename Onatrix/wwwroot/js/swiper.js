@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('#serviceSwiper', {
-        slidesPerView: 1.2,
+        slidesPerView: 1.1,
         spaceBetween: 16,
         centeredSlides: true,
         centeredSlidesBounds: true,
@@ -37,6 +37,32 @@
                 centeredSlidesBounds: false,
                 slidesOffsetBefore: 0,
                 slidesOffsetAfter: 0
+            }
+        }
+    })
+
+    const employeeSwiper = new Swiper('#employeeSwiper', {
+        slidesPerView: 1.1,
+        spaceBetween: 8,
+        centeredSlides: true,
+        centeredSlidesBounds: true,
+        slidesOffsetBefore: 8,
+        slidesOffsetAfter: 8,
+
+        navigation: {
+            nextEl: '.employee-next',
+            prevEl: '.employee-prev'
+        },
+
+        breakpoints: {
+            768: {
+                slidesPerView: 2.1,
+                spaceBetween: 8,
+                slidesPerGroup: 2,
+                centeredSlides: false,
+                centeredSlidesBounds: false,
+                slidesOffsetBefore: 8,
+                slidesOffsetAfter: 8,
             }
         }
     })

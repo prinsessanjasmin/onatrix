@@ -7,10 +7,10 @@
 	var contactAddress = siteSettings?.ContactAddress ?? "Ingen adress angiven";
 }
 
-<div class="bg-primary">
+
+<div class="bg-primary hidden md:block">
 	<div class="container content flex items-center justify-between">
 		<p class="text-sm text-white">@contactAddress</p>
-
 		<div class="flex">
 			@if (siteSettings?.SocialMediaList != null)
 			{

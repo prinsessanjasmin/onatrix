@@ -11,16 +11,16 @@
 
 
 
-<section class="py-[7rem]" style="background-color: @sectionColor">
+<section class="py-[2rem] lg:py-[7rem]" style="background-color: @(sectionColor);">
 	<div class="container content">
 		<div class="flex flex-col items-center justify-center">
 			@if (settings!.ShowEmployeesLabel)
 			{
 				<p class="label">@content.EmployeesLabel</p>
 			}
-			<h2 class="max-w-[30ch] text-center">@content.EmployeesHeadline</h2>
+			<h2 class="max-w-[30ch] !text-center pb-[1rem]">@content.EmployeesHeadline</h2>
 		</div>
-		<div class="flex flex-wrap gap-y-5 py-5 -mx-2 justify-center">
+		<div class="hidden lg:flex flex-wrap gap-y-5 py-5 -mx-2 justify-center">
 			@if (employees != null)
 			{
 				@for (var i = 0; i < employees.Count; i++)
@@ -32,6 +32,31 @@
 						<partial name="Partials/Blocklist/Components/TeamMember" model="member" />
 					</div>
 				}
+			}
+		</div>
+		<div class="lg:hidden">
+			@if (employees != null)
+			{
+				<div class="swiper" id="employeeSwiper">
+					<div class="swiper-wrapper">
+						@for (var i = 0; i < employees.Count; i++)
+						{
+							var member = employees[i];
+
+							<div class="swiper-slide bg-white w-full h-[350px] overflow-hidden transition-all hover:border-secondary hover:shadow-[0:4px_15px_rgba(0,0,0,0.1)]">
+								<partial name="Partials/Blocklist/Components/TeamMember" model="member" />
+							</div>
+						}
+					</div>
+					<div class="employee-pagination">
+						<div class="employee-prev"><i class="fa-solid fa-chevron-left"></i></div>
+						<div class="employee-next"><i class="fa-solid fa-chevron-right"></i></div>
+					</div>
+				</div>
+			}
+			else
+			{
+				<p>No employees available at the moment.</p>
 			}
 		</div>
 	</div>

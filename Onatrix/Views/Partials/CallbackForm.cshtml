@@ -6,7 +6,7 @@
 @using (Html.BeginUmbracoForm ("HandleCallbackForm", "CallbackForm", FormMethod.Post, new{novalidate = "novalidate", id = "callbackForm"})) 
 {
 	
-	<div class="px-[2rem] flex flex-col gap-6" id="callbackForm">
+	<div class="px-[1rem] md:px-[2rem] flex flex-col gap-6" id="callbackForm">
 		@if (TempData["CallbackFormSuccess"] != null)
 		{
 			<h4 class="italic !text-success items-center justify-center text-center mt-[4rem]">@TempData["CallbackFormSuccess"]</h4>

@@ -23,35 +23,35 @@ body {
 }
 
 .hero-title {
-    @apply text-[4.2rem] leading-20 font-bold text-text;
+    @apply text-center md:text-left text-[2.5rem] lg:text-[4.2rem] leading-15 md:leading-10 lg:leading-20 font-bold text-text;
 }
 
 h1 {
-    @apply text-5xl font-bold text-primary text-balance;
+    @apply text-[3rem] text-center md:text-start font-bold text-primary text-balance;
 }
 
 h2 {
-    @apply text-[2.5rem] font-bold text-primary text-balance leading-normal;
+    @apply text-[2rem] md:text-[2.5rem] text-center md:text-start font-bold text-primary text-balance leading-normal;
 }
 
 h3 {
-    @apply text-3xl font-bold text-primary text-balance;
+    @apply text-[1.4rem] text-[1.875rem] text-center md:text-start font-bold text-primary text-balance;
 }
 
 h4 {
-    @apply text-2xl font-bold text-primary text-balance;
+    @apply text-[1.3rem] md:text-[1.375rem] text-center lg:text-start font-bold text-primary text-balance;
 }
 
 h5 {
-    @apply text-xl font-bold text-primary text-balance;
+    @apply text-xl text-center md:text-start font-bold text-primary text-balance;
 }
 
 h6 {
-    @apply text-lg font-bold text-primary text-balance;
+    @apply text-lg text-center md:text-start font-bold text-primary text-balance;
 }
 
 .success-number {
-    @apply text-[6.25rem] font-semibold z-25;
+    @apply text-[4.5rem] lg:text-[6.25rem] font-semibold z-25;
     color: #D9C3A9 !important;
 }
 
@@ -60,11 +60,11 @@ p {
 }
 
 .content {
-    @apply max-w-7xl mx-auto px-4;
+    @apply sm:w-full md:max-w-2xl lg:max-w-7xl mx-auto px-4;
 }
 
 .label {
-    @apply text-sm font-bold text-tertiary uppercase;
+    @apply text-sm text-center lg:text-start py-2 font-bold text-tertiary uppercase;
 }
 
 .social-media-icon {
@@ -104,7 +104,7 @@ p {
 }
 
 .text-rte-s {
-    @apply text-[0,875rem] leading-relaxed pb-2 text-pretty;
+    @apply text-[0.875rem] leading-relaxed pb-2 text-pretty;
 }
 
 .form-input {

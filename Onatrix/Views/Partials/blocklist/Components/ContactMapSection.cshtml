@@ -13,14 +13,19 @@
 }
 
 <section class="relative pt-[7rem] bg-no-repeat bg-cover overflow-visible" style="background-image: url('@bgImage')">
-	<div class="relative translate-y-[20%] flex !max-w-7xl mx-auto px-4 py-8 z-50 gap-4 bg-white shadow-md justify-center overflow-visible">
+	<div class="relative translate-y-[20%] flex !max-w-7xl mx-auto px-4 py-8 z-40 gap-4 bg-white shadow-md justify-center overflow-visible">
 		<div class="flex flex-col w-full justify-center">
 			<div class="flex flex-col gap-2 !pt-14 pb-10 text-center items-center justify-center">
 				<p class="label">@content.ContactMapFormLabel</p>
-				<h3 class="!text-primary p-[1rem] max-w-[25ch]">@content.ContactMapFormTitle</h3>
+				<h3 class="!text-primary p-[1rem] max-w-[25ch] !text-center">@content.ContactMapFormTitle</h3>
 				<p class="text-note text-sm italic text-text max-w-[70ch] ">@content.ContactMapFormDescription</p>
 			</div>
-			<partial name="Partials/ContactMapForm" model="formViewModel" />
+			<div class="hidden md:contents">
+				<partial name="Partials/ContactMapForm" model="formViewModel" />
+			</div>
+			<div class="contents md:hidden">
+				<partial name="Partials/CallbackForm" model="formViewModel" />
+			</div>
 		</div>
 	</div>
 </section>
