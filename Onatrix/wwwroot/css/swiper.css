@@ -1,15 +1,20 @@
-﻿.custom-pagination {
+﻿.custom-pagination,
+.employee-pagination {
     @apply hidden md:flex md:justify-center md:items-center md:gap-4 md:py-2 md:mt-6 md:px-6;
 }
 
 .custom-prev,
-.custom-next {
+.custom-next,
+.employee-next,
+.employee-prev 
+{
     @apply flex text-lg font-semibold text-primary;
     cursor: pointer !important;
     
 }
 
-.swiper-pagination {
+.swiper-pagination, 
+.employee-swiper-pagination {
     @apply flex justify-center items-center gap-2 !relative !bottom-0;
 }
 

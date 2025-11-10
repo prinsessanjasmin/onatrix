@@ -319,6 +319,9 @@
   .h-\[220px\] {
     height: 220px;
   }
+  .h-\[350px\] {
+    height: 350px;
+  }
   .h-full {
     height: 100%;
   }
@@ -939,6 +942,11 @@
       padding-block: 4rem;
     }
   }
+  .md\:py-\[7rem\] {
+    @media (width >= 48rem) {
+      padding-block: 7rem;
+    }
+  }
   .md\:pt-\[4rem\] {
     @media (width >= 48rem) {
       padding-top: 4rem;
@@ -983,6 +991,16 @@
   .lg\:-mt-\[11rem\] {
     @media (width >= 64rem) {
       margin-top: calc(11rem * -1);
+    }
+  }
+  .lg\:flex {
+    @media (width >= 64rem) {
+      display: flex;
+    }
+  }
+  .lg\:hidden {
+    @media (width >= 64rem) {
+      display: none;
     }
   }
   .lg\:h-full {
@@ -1061,7 +1079,7 @@
     }
   }
 }
-.custom-pagination {
+.custom-pagination, .employee-pagination {
   display: none;
   @media (width >= 48rem) {
     margin-top: calc(var(--spacing) * 6);
@@ -1085,7 +1103,7 @@
     padding-block: calc(var(--spacing) * 2);
   }
 }
-.custom-prev, .custom-next {
+.custom-prev, .custom-next, .employee-next, .employee-prev {
   display: flex;
   font-size: var(--text-lg);
   line-height: var(--tw-leading, var(--text-lg--line-height));
@@ -1094,7 +1112,7 @@
   color: var(--color-primary);
   cursor: pointer !important;
 }
-.swiper-pagination {
+.swiper-pagination, .employee-swiper-pagination {
   position: relative !important;
   bottom: calc(var(--spacing) * 0) !important;
   display: flex;
