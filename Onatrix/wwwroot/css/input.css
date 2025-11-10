@@ -64,7 +64,7 @@ p {
 }
 
 .label {
-    @apply text-sm text-center lg:text-start p-2 font-bold text-tertiary uppercase;
+    @apply text-sm text-center lg:text-start py-2 font-bold text-tertiary uppercase;
 }
 
 .social-media-icon {

@@ -8,15 +8,15 @@
 }
 
 <section class="relative py-[2rem] lg:py-[7rem]" style="background-color: @(sectionColor);">
-	<div class="container content relative flex flex-col lg:flex-row gap-4 lg:gap-8">
-		<div class="lg:w-6/12 flex flex-col gap-4">
+	<div class="container content relative flex flex-col md:flex-row gap-4 lg:gap-8">
+		<div class="md:w-1/2 flex flex-col justify-center md:items-start gap-4">
 			@if (settings!.ShowReviewLabel)
 			{
-				<p class="label">@content.ReviewLabel</p>
+				<p class="label !md:text-start">@content.ReviewLabel</p>
 			}
-			<h2 class="!text-center !lg:text-start">@content.ReviewHeadline</h2>
-			<div class="flex flex-col gap-4 pt-4 items-center lg:items-start">
-				<p class="text-xl italic text-center lg:text-start">@content.ReviewText</p>
+			<h2>@content.ReviewHeadline</h2>
+			<div class="flex flex-col gap-4 pt-4 items-center md:items-start">
+				<p class="text-xl italic text-center md:text-start">@content.ReviewText</p>
 				<div class="flex flex-row text-text">
 					@switch (content.ReviewGrade)
 					{
@@ -65,8 +65,8 @@
 				<p class="text-xl font-normal italic">@content.ReviewerCompany</p>
 			</div>	
 		</div>
-		<div class="flex">
-			<img src="@content.ReviewImage?.Url()" />
+		<div class="flex md:w-1/2">
+			<img class="md:h-full md:object-cover md:object-[30%_50%]" src="@content.ReviewImage?.Url()" />
 		</div>
 	</div>
 </section>
