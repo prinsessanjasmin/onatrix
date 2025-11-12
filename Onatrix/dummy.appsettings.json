@@ -35,9 +35,18 @@
             "Security": {
                 "AllowConcurrentLogins": false
             }
+        }
     },
     "ConnectionStrings": {
         "umbracoDbDSN": "",
         "umbracoDbDSN_ProviderName": ""
+    },
+    "ServiceBus": {
+        "ConnectionString": "",
+        "QueueName": ""
+    },
+    "ACS": {
+        "ConnectionString": "",
+        "SenderAddress": ""
     }
 }
