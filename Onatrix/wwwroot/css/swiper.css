@@ -23,7 +23,7 @@
 }
 
 .swiper-pagination-bullet {
-    @apply !flex text-lg !text-primary font-semibold flex p-6 !bg-white rounded-full cursor-pointer;
+    @apply !flex !justify-center !items-center text-lg !text-primary font-semibold flex p-6 !bg-white rounded-full cursor-pointer;
 }
 
 .swiper-pagination-bullet:hover {
@@ -32,10 +32,6 @@
 
 .swiper-pagination-bullet-active {
     @apply !bg-white outline-1 outline-light-grey text-primary;
-}
-
-.swiper-pagination-bullet span {
-    @apply !justify-self-center !self-center;
 }
 
 

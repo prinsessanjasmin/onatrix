@@ -7,9 +7,13 @@
 	var formViewModel = new EmailFormViewModel();
 }
 
-<div class="flex flex-col gap-4 mb-6 p-4 bg-primary bg-[url('/Images/Logos/mail-icon-vector')] bg-no-repeat bg-right-bottom bg-rotate-45">
+<div class="flex flex-col gap-4 mb-6 p-4 bg-primary relative overflow-hidden">
+	<div class="absolute right-0 bottom-px w-24 h-24 opacity-10 rotate-45">
+		<img src="/Images/mail-icon-vector.svg" alt="" class="w-full h-full brightness-0 invert">
+	</div>
 	<h5 class="!font-light !text-white">@content.OnlineSupportWidgetTitle</h5>
 	<p class="text-white">@content.OnlineSupportWidgetDescription</p>
 	<partial name="Partials/EmailForm" model="formViewModel" />
+	
 </div>
 

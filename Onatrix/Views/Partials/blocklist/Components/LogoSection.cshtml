@@ -3,6 +3,7 @@
 @{
 	var content = (ContentModels.LogoSection)Model.Content;
 	var logos = content.Logos?.ToList() ?? new List<Umbraco.Cms.Core.Models.Blocks.BlockListItem>();
+    
 }
 
 <section class="hidden md:block relative pt-[2rem] md:pt-[10rem] lg:pt-[14rem] pb-[4rem] bg-white z-0">
@@ -11,13 +12,15 @@
             @if (logos?.Count > 0)
             {
                 <div class="flex md:gap-2 lg:gap-8 justify-between items-start items-stretch">
-                    @for (var i = 0; i < Math.Min(6, logos.Count); i++)
+                    @for (var i = 0; i < logos.Count; i++)
                     {
                         var logo = (ContentModels.LogoItem)logos[i].Content;
+                        var companyName = logo.LogoCompanyName ?? "";
+                        var companyUrl = logo.LogoCompanyUrl?.Url ?? "";
 
                         <div class="flex justify-between items-center px-4">
-                            <a href="@logo.LogoCompanyUrl?.Url" target="_blank">
-                                <img class="" src="@logo.LogoImage?.Url()" alt="@logo.LogoCompanyName" />
+                            <a href="@companyUrl" target="_blank">
+                                <img class="" src="@logo.LogoImage?.Url()" alt="@companyName" />
                             </a>
                         </div>
                     }
