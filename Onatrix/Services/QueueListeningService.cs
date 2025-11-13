@@ -3,18 +3,34 @@ using Onatrix.Models;
 
 namespace Onatrix.Services;
 
-public class QueueListeningService(ServiceBusProcessor serviceBusProcessor, IServiceProvider serviceProvider) : BackgroundService
+public class QueueListeningService : BackgroundService
 {
-    private readonly ServiceBusProcessor _serviceBusProcessor = serviceBusProcessor;
-    private readonly IServiceProvider _serviceProvider = serviceProvider;
-    //Had help here from Claude AI, who suggested the use of IServiceProvider instead of injecting the EmailClient directly
+    private readonly ServiceBusProcessor _serviceBusProcessor;
+    private readonly IServiceProvider _serviceProvider;
+    private readonly ILogger<QueueListeningService> _logger;
+
+    public QueueListeningService(ServiceBusProcessor serviceBusProcessor, IServiceProvider serviceProvider, ILogger<QueueListeningService> logger)
+    {
+        _serviceBusProcessor = serviceBusProcessor;
+        _serviceProvider = serviceProvider;
+        _logger = logger;
+
+        _logger.LogInformation("QueueListeningService constructor called");
+    }
+
+
+    //Had help here from Claude AI, who suggested the use of IServiceProvider instead of injecting the EmailClient directly, and suggested extra logging 
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        _logger.LogInformation("QueueListeningService starting...");
+
         _serviceBusProcessor.ProcessMessageAsync += MessageHandler;
         _serviceBusProcessor.ProcessErrorAsync += ErrorHandler;
 
         await _serviceBusProcessor.StartProcessingAsync(stoppingToken);
+
+        _logger.LogInformation("ServiceBusProcessor started successfully");
 
         await Task.Delay(Timeout.Infinite, stoppingToken);
     }
@@ -22,24 +38,44 @@ public class QueueListeningService(ServiceBusProcessor serviceBusProcessor, ISer
     
     public async Task MessageHandler(ProcessMessageEventArgs args)
     {
-        var message = args.Message.Body.ToString();
-        var messageData = System.Text.Json.JsonSerializer.Deserialize<MessageModel>(message);
 
-        if (messageData != null)
+        _logger.LogInformation("Message received from queue!");
+        try
         {
-            using var scope = _serviceProvider.CreateScope();
-            var emailService = scope.ServiceProvider.GetRequiredService<EmailService>();
+            var message = args.Message.Body.ToString();
+            _logger.LogInformation($"Message body: {message}");
 
-            await emailService.SendEmailAsync(messageData.EmailAddress, messageData.ClientName ?? "", messageData.ServiceOfInterest ?? "");
+            var messageData = System.Text.Json.JsonSerializer.Deserialize<MessageModel>(message);
+
+            if (messageData != null)
+            {
+                _logger.LogInformation($"Deserialized message for: {messageData.EmailAddress}");
+
+                using var scope = _serviceProvider.CreateScope();
+                var emailService = scope.ServiceProvider.GetRequiredService<EmailService>();
+
+                _logger.LogInformation("About to send email...");
+                await emailService.SendEmailAsync(messageData.EmailAddress, messageData.ClientName ?? "", messageData.ServiceOfInterest ?? "");
+                _logger.LogInformation("Email sent successfully!");
+
+                await args.CompleteMessageAsync(args.Message);
+                _logger.LogInformation("Message completed");
+            }
+
         }
-
-        await args.CompleteMessageAsync(args.Message);       
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error processing message");
+        }
+       
+        
     }
 
     // handle any errors when receiving messages
     public Task ErrorHandler(ProcessErrorEventArgs args)
     {
-        Console.WriteLine(args.Exception.ToString());
+        _logger.LogError(args.Exception, $"Error in Service Bus: {args.ErrorSource}");
+
         return Task.CompletedTask;
     }
 }

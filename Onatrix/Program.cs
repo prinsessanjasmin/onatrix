@@ -7,6 +7,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<FormSubmissionService>();
 builder.Services.AddScoped<EmailService>();
+builder.Services.AddHostedService<QueueListeningService>();
 
 //Got help with service bus registration from Claude AI 
 builder.Services.AddSingleton(sp =>
@@ -31,7 +32,7 @@ builder.Services.AddSingleton(sp =>
 
 builder.Services.AddSingleton(sp =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("ACS:ConnectionString");
+    var connectionString = builder.Configuration["ACS:ConnectionString"];
     return new EmailClient(connectionString);
 });
 

@@ -26,14 +26,16 @@
 				<span asp-validation-for="Question"></span>
 			</div>
 		</div>
-		@if (TempData["QuestionFormSuccess"] != null)
-		{
-			<h4 class="italic !text-success items-center justify-center text-center my-[4rem]">@TempData["QuestionFormSuccess"]</h4>
-		}
-		else if (TempData["QuestionFormError"] != null)
-		{
-			<h4 class="!text-error italic items-center justify-center text-center my-[4rem]">@TempData["QuestionFormError"]</h4>
-		}
+		<div class="flex items-center justify-center">
+			@if (TempData["QuestionFormError"] != null)
+			{
+				<h5 class="!text-error italic text-center py-[1rem]">@TempData["QuestionFormError"]</h5>
+			}
+			else
+			{
+				<h5 class="!text-success italic text-center py-[1rem]">@TempData["QuestionFormSuccess"]</h5>
+			}
+		</div>
 		<div class="flex py-4 justify-start items-center">
 			<button type="submit" class="bg-primary text-secondary form-btn !w-min self-center">Submit</button>
 		</div>

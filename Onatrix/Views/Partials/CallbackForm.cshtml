@@ -7,49 +7,50 @@
 {
 	
 	<div class="px-[1rem] md:px-[2rem] flex flex-col gap-6" id="callbackForm">
-		@if (TempData["CallbackFormSuccess"] != null)
-		{
-			<h4 class="italic !text-success items-center justify-center text-center mt-[4rem]">@TempData["CallbackFormSuccess"]</h4>
-		}
-		else if (TempData["CallbackFormError"] != null)
-		{
-			<h4 class="!text-error italic items-center justify-center text-center">@TempData["CallbackFormError"]</h4>
-		}
-		else
-		{
-			<div class="input-group">
-				<label class="sr-only" asp-for="Name"></label>
-				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" asp-for="Name" />
-				<span asp-validation-for="Name"></span>
+
+		<div class="input-group">
+			<label class="sr-only" asp-for="Name"></label>
+			<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" asp-for="Name" />
+			<span asp-validation-for="Name"></span>
+		</div>
+		<div class="input-group">
+			<label class="sr-only" asp-for="Email"></label>
+			<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
+			<span asp-validation-for="Email"></span>
+		</div>
+		<div class="input-group">
+			<label class="sr-only" asp-for="Phone"></label>
+			<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Phone)" asp-for="Phone" />
+			<span asp-validation-for="Phone"></span>
+		</div>
+		<div class="input-group relative">
+			<label class="sr-only" asp-for="SelectedService"></label>
+			<div>
+				<select class="form-input appearance-none w-full pr-10 not-italic" asp-for="SelectedService">
+					<option value="" disabled hidden selected>Please select an option</option>
+					@foreach (var option in Model.Options)
+					{
+						<option class="not-italic" value="@option">@option</option>
+					}
+				</select>
+				<span class="pointer-events-none absolute right-3 inset-y-0 flex items-center text-text"><i class="fa-solid fa-chevron-down"></i></span>
 			</div>
-			<div class="input-group">
-				<label class="sr-only" asp-for="Email"></label>
-				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" asp-for="Email" />
-				<span asp-validation-for="Email"></span>
-			</div>
-			<div class="input-group">
-				<label class="sr-only" asp-for="Phone"></label>
-				<input class="form-input" type="text" placeholder="@Html.DisplayNameFor(x => x.Phone)" asp-for="Phone" />
-				<span asp-validation-for="Phone"></span>
-			</div>
-			<div class="input-group relative">
-				<label class="sr-only" asp-for="SelectedService"></label>
-				<div>
-					<select class="form-input appearance-none w-full pr-10 not-italic" asp-for="SelectedService">
-						<option value="" disabled hidden selected>Please select an option</option>
-						@foreach (var option in Model.Options)
-						{
-							<option class="not-italic" value="@option">@option</option>
-						}
-					</select>
-					<span class="pointer-events-none absolute right-3 inset-y-0 flex items-center text-text"><i class="fa-solid fa-chevron-down"></i></span>
-				</div>
-				<span asp-validation-for="SelectedService"></span>
-			</div>
-			<div class="pb-[2.5rem]">
-				<button type="submit" class="bg-secondary text-primary form-btn">Submit</button>
-			</div>
-		}
+			<span asp-validation-for="SelectedService"></span>
+		</div>
+		<div class="flex items-center justify-center">
+			@if (TempData["CallbackFormError"] != null)
+			{
+				<h5 class="!text-error italic text-center py-[1rem]">@TempData["CallbackFormError"]</h5>
+			}
+			else
+			{
+				<h5 class="!text-success italic text-center py-[1rem]">@TempData["CallbackFormSuccess"]</h5>
+			}
+		</div>
+		<div class="pb-[2.5rem]">
+			<button type="submit" class="bg-secondary text-primary form-btn">Submit</button>
+		</div>
+		
 	</div>
 }
 

@@ -39,7 +39,7 @@ public class EmailService
                 Html = $@"
                 <html>
                     <body>
-                        <h2>Hello!</h2>
+                        <h2>Hello {name ?? "to you"},</h2>
                         <p>Thank you for reaching out to us at Onatrix! We're looking forward to dive deeper into {serviceOfInterest} with you. We will get back to you shortly.<br><br>Best regards,<br>Onatrix Team</p>
                     </body>
                 </html>"
@@ -47,7 +47,7 @@ public class EmailService
         }
         
         var emailMessage = new EmailMessage(
-            senderAddress: _configuration["SenderAddress"],
+            senderAddress: _configuration["ACS:SenderAddress"],
             content: emailContent,
             recipients: new EmailRecipients(new List<EmailAddress>
             {

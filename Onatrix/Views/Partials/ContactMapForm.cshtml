@@ -40,19 +40,19 @@
 				<span asp-validation-for="SelectedService"></span>
 			</div>
 		</div>
+		<div class="flex items-center justify-center">
+			@if (TempData["CallbackFormError"] != null)
+			{
+				<h5 class="!text-error italic text-center py-[1rem]">@TempData["CallbackFormError"]</h5>
+			}
+			else
+			{
+				<h5 class="!text-success italic text-center py-[1rem]">@TempData["CallbackFormSuccess"]</h5>
+			}
+		</div>
 		<div class="flex pb-[2.5rem] justify-center items-center">
 			<button type="submit" class="bg-primary text-secondary form-btn !w-min self-center">Submit</button>
 		</div>
-		
-		@if (TempData["CallbackFormSuccess"] != null)
-		{
-			<h4 class="italic !text-success items-center justify-center text-center mt-[4rem]">@TempData["CallbackFormSuccess"]</h4>
-		}
-		else if (TempData["CallbackFormError"] != null)
-		{
-			<h4 class="!text-error italic items-center justify-center text-center  mt-[4rem]">@TempData["CallbackFormError"]</h4>
-		}
 	</div>
-
 }
 
