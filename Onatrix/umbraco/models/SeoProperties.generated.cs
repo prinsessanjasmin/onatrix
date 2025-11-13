@@ -18,14 +18,34 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Trust Us Section</summary>
-	[PublishedModel("trustUsSection")]
-	public partial class TrustUsSection : PublishedElementModel
+	// Mixin Content Type with alias "seoProperties"
+	/// <summary>SEO Properties</summary>
+	public partial interface ISeoProperties : IPublishedElement
+	{
+		/// <summary>Meta Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string SeoMetaDescription { get; }
+
+		/// <summary>Meta Keywords</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string SeoMetaKeywords { get; }
+
+		/// <summary>Page Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string SeoPageTitle { get; }
+	}
+
+	/// <summary>SEO Properties</summary>
+	[PublishedModel("seoProperties")]
+	public partial class SeoProperties : PublishedElementModel, ISeoProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		public new const string ModelTypeAlias = "trustUsSection";
+		public new const string ModelTypeAlias = "seoProperties";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
@@ -34,14 +54,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<TrustUsSection, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<SeoProperties, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public TrustUsSection(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public SeoProperties(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,51 +70,42 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Background Image
+		/// Meta Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("trustUsBackgroundImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops TrustUsBackgroundImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "trustUsBackgroundImage");
+		[ImplementPropertyType("seoMetaDescription")]
+		public virtual string SeoMetaDescription => GetSeoMetaDescription(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Meta Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetSeoMetaDescription(ISeoProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "seoMetaDescription");
 
 		///<summary>
-		/// Headline
+		/// Meta Keywords
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("trustUsHeadline")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString TrustUsHeadline => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "trustUsHeadline");
+		[ImplementPropertyType("seoMetaKeywords")]
+		public virtual string SeoMetaKeywords => GetSeoMetaKeywords(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Meta Keywords</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetSeoMetaKeywords(ISeoProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "seoMetaKeywords");
 
 		///<summary>
-		/// Image
+		/// Page Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("trustUsImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops TrustUsImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "trustUsImage");
+		[ImplementPropertyType("seoPageTitle")]
+		public virtual string SeoPageTitle => GetSeoPageTitle(this, _publishedValueFallback);
 
-		///<summary>
-		/// Label
-		///</summary>
+		/// <summary>Static getter for Page Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("trustUsLabel")]
-		public virtual string TrustUsLabel => this.Value<string>(_publishedValueFallback, "trustUsLabel");
-
-		///<summary>
-		/// Link
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("trustUsLink")]
-		public virtual global::Umbraco.Cms.Core.Models.Link TrustUsLink => this.Value<global::Umbraco.Cms.Core.Models.Link>(_publishedValueFallback, "trustUsLink");
-
-		///<summary>
-		/// Text
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("trustUsText")]
-		public virtual string TrustUsText => this.Value<string>(_publishedValueFallback, "trustUsText");
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetSeoPageTitle(ISeoProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "seoPageTitle");
 	}
 }

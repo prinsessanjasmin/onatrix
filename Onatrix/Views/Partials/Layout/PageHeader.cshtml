@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPageHeader>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 
 @using Umbraco.Cms.Core.PublishedCache
 @using Umbraco.Cms.Core.Routing
@@ -13,14 +13,13 @@
 	var selection = Model.Ancestors().ToArray();
 	var homePageDisplayName = "Home"; 
 	var isFirstItem = true; 
+	var pageTitle = Model.HasValue("seoPageTitle") ? Model.Value<string>("seoPageTitle") : Model.Name;
 }
 
 
-<section class="bg-bg-grey bg-no-repeat py-4 md:py-10 lg:py-16 
-		[background-image:url('/Images/Backgrounds/dot-left-down.svg'),url('/Images/Backgrounds/dot-right-up.svg')]
-		[background-position:left_bottom,top_right]">
+<section class="bg-bg-grey bg-no-repeat py-4 md:py-10 lg:py-16" style="background-image: url('/Images/dot-left-down.svg'), url('/Images/dot-right-up.svg'); background-position:left bottom,top right">
 	<div class="container mx-auto px-4">
-		<h1 class="!text-center text-[2.5rem] text-primary font-bold">@Model.PageTitle</h1>
+		<h1 class="!text-center text-[2.5rem] text-primary font-bold">@pageTitle</h1>
 		<div class="flex justify-center gap-3 pt-3">
 			@if (selection?.Length > 0)
 			{
@@ -36,7 +35,7 @@
 						isFirstItem = false; 
 					}
 					<li class="flex items-center">
-						<p class="text-tertiary text-sm">@Model.Name</p>
+						<p class="text-tertiary text-sm">@pageTitle</p>
 					</li>
 				</ul>
 			}

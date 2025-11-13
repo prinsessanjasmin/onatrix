@@ -8,8 +8,12 @@
     var rootContent = Umbraco.ContentAtRoot();
     var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 
+    var pageTitle = Model.HasValue("seoPageTitle") ? Model.Value<string>("seoPageTitle") : Model.Name;
+    var metaDescription = Model.Value<string>("seoMetaDescription");
+    var metaKeywords = Model.Value<string>("seoMetaKeywords");
+
     var siteName = siteSettings?.SiteName ?? "Onatrix";
-    var title = Model.Level == 1 ? $"{siteName}" : $"{siteName} | {Model.Name}";
+    var title = Model.Level == 1 ? $"{siteName}" : $"{siteName} | {pageTitle}";
 }
 
 
@@ -19,6 +23,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@title</title>
+    @if (!string.IsNullOrEmpty(metaDescription))
+    {
+        <meta name="description" content="@metaDescription">
+    }
+    @if (!string.IsNullOrEmpty(metaKeywords))
+    {
+        <meta name="keywords" content="@metaKeywords">
+    }
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />

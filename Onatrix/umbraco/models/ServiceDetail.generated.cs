@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Service Detail</summary>
 	[PublishedModel("serviceDetail")]
-	public partial class ServiceDetail : PublishedContentModel, IPageHeader
+	public partial class ServiceDetail : PublishedContentModel, ISeoProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -90,11 +90,27 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ServiceDetailThumbnail => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "serviceDetailThumbnail");
 
 		///<summary>
+		/// Meta Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoMetaDescription")]
+		public virtual string SeoMetaDescription => global::Umbraco.Cms.Web.Common.PublishedModels.SeoProperties.GetSeoMetaDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Meta Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("seoMetaKeywords")]
+		public virtual string SeoMetaKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.SeoProperties.GetSeoMetaKeywords(this, _publishedValueFallback);
+
+		///<summary>
 		/// Page Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.2.0+4eae48e")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("pageTitle")]
-		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageHeader.GetPageTitle(this, _publishedValueFallback);
+		[ImplementPropertyType("seoPageTitle")]
+		public virtual string SeoPageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.SeoProperties.GetSeoPageTitle(this, _publishedValueFallback);
 	}
 }
