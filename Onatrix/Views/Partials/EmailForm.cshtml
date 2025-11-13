@@ -12,14 +12,15 @@
 			<span asp-validation-for="Email"></span>
 		</div>
 	</div>
-	
-	
-	@if (TempData["EmailFormSuccess"] != null)
-	{
-		<h5 class="italic !text-success items-center justify-center text-center my-[4rem]">@TempData["EmailFormSuccess"]</h5>
-	}
-	else if (TempData["EmailFormError"] != null)
-	{
-		<h5 class="!text-error italic items-center justify-center text-center my-[4rem]">@TempData["EmailFormError"]</h5>
-	}
+
+	<div class="flex items-center justify-center">
+		@if (TempData["EmailFormError"] != null)
+		{
+			<h5 class="!text-error italic text-center py-[1rem]">@TempData["EmailFormError"]</h5>
+		}
+		else
+		{
+			<h5 class="!text-success italic text-center py-[1rem]">@TempData["EmailFormSuccess"]</h5>
+		}
+	</div>
 }
